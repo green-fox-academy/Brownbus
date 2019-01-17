@@ -68,4 +68,9 @@ console.log('My favourite numbber is: ' + 23);
 ("use strict");
 
 
+console.log("Barnabas Kalasz </br>");
+console.log("21 </br>");
+console.log(1.83 </br> );
+
+//Math excercises
 

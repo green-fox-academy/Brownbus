@@ -1,10 +1,10 @@
-("use strict");
+'use strict';
 
 //Greetings
 
-document.write ("Hello Esther </br> "); 
-document.write("Hello Mary </br> "); 
-document.write("Hello Joe </br>"); 
+console.log("Hello Esther"); 
+console.log("Hello Mary"); 
+console.log("Hello Joe"); 
  
 
 /*Multiline Comment
