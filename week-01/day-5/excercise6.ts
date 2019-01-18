@@ -3,7 +3,7 @@
 let lineCount: number = 4;
 
 
-/* // Write a program that draws a
+/* // //Write a program that draws a
 // pyramid like this:
 //
 //    *
