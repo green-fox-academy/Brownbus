@@ -16,26 +16,26 @@ let lineCount: number = 4;
   */
 
 
- let a: string = '';
+let a: string = '';
 
- for (
- let i: number=0; lineCount>i; i++){
- 
-         for(let j: number = 0; j<lineCount-i; j++){
- 
-             a += ' '
-         }
-   
-         for(let j: number = 1; i*2+1>=j; j++){
- 
-             a += "*";
-             
-             
-             
-         }
- 
-     
- 
-     console.log(a);
-     a ='' ;
-        }
+for (
+    let i: number = 0; lineCount > i; i++) {
+
+    for (let j: number = 0; j < lineCount - i; j++) {
+
+        a += ' '
+    }
+
+    for (let j: number = 1; i * 2 + 1 >= j; j++) {
+
+        a += "*";
+
+
+
+    }
+
+
+
+    console.log(a);
+    a = '';
+}
