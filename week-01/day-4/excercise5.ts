@@ -1,0 +1,9 @@
+'use strict';
+//some math excercises
+
+
+console.log(13+22);
+console.log(22-13);
+console.log(22*13);
+console.log(22/13);
+console.log(22%13);
