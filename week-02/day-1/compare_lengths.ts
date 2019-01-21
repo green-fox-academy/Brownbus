@@ -8,4 +8,10 @@ export {};
 
 let firstList = [1, 2, 3];
 let secondList = [4, 5];
-console.log(secondList.length > firstList.length);
+let a: any = secondList.length > firstList.length
+if(a == true){
+  console.log('the second list has more elements')
+
+}else{
+  console.log('the first list has more elements')
+}

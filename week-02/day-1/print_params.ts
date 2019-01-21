@@ -9,4 +9,4 @@ export{}
 console.log(d);
 
   }
-  printParams('g','h','i','j','k')
+  printParams('g','h',1,'zold','j','k')
