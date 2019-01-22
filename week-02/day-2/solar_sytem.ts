@@ -6,19 +6,13 @@
 //['Mercury', 'Venus', 'Earth', 'Mars', 'Jupiter', 'Uranus', 'Neptune' 'Saturn'];
 let planetList: string[] = ['Mercury', 'Venus', 'Earth', 'Mars', 'Jupiter', 'Uranus', 'Neptune'];
 // Expected output: "Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn",  "Uranus", "Neptune"
-function putSaturn(a :string[]){
-let k: string = 'Saturn'
-  a.push(k)
-  if( a[5] !== k){
-    a[5]=a[7]
-    a[7]= a[6]
-    a[6] = 'Uranus'
-  }
-return a
+function putSaturn(list :string[]){
+list.splice(5, 0, 'Saturn')
+return list
 }
 
 
 
 console.log(putSaturn(planetList));
 
-export = putSaturn;
+export = putSaturn
