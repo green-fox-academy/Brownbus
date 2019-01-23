@@ -6,9 +6,7 @@ export { }
 // -  Print the fourth element as a test
 
 let numList = [1, 2, 3, 8, 5, 6];
-let numList2 = numList.map(function(element){
-  if (element === 8){
-    return 4;
-  }
+let numList2 = numList2.map(function(element){
+  if element ===
 });
 console.log(numList2[3])

@@ -10,3 +10,5 @@ console.log(d);
 
   }
   printParams('g','h',1,'zold','j','k')
+
+  
