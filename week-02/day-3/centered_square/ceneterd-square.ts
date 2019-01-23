@@ -17,7 +17,7 @@ ctx.lineTo(295, 195)
 //ctx.lineWidth = 5;
 ctx.stroke() 
 
-//other solution
+//OTHER SOLUTION
 
 
 /* ctx.fillStyle = 'green'
