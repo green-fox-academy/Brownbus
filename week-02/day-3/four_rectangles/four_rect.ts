@@ -28,7 +28,7 @@ function getRandom(max){
 }
 for (let i: number = 0; i <= numberOfRect; i++) {
 
-  ctx.fillStyle = colours[getRandom(5)-1]
+  ctx.fillStyle =colours [getRandom(5)-1]
   ctx.fillRect(j, j, k, k)
   j += k
   k *= 1.5;
