@@ -9,8 +9,7 @@ let boys: string[] = ['Joe', 'Fred', 'Tom', 'Todd', 'Neef', 'Jeff'];
 
 function makingMatches(arr: string[], arr2: string[]){
   for(let i: number = 0; i< arr2.length; i++){
-    arr.splice( i+i, 0, arr2[i])
-  }
+    arr.splice( i+i, 0, arr2[i])}
 console.log(arr)
 return arr;
 }
