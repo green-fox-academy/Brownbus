@@ -3,26 +3,20 @@
 const canvas = document.querySelector('.main-canvas') as HTMLCanvasElement;
 const ctx = canvas.getContext('2d');
 
-
-
-
-
-function pyramid(c){
-  let s: number = 50+c/2
-for(let j: number = 0; j<c; j++){
-  
-  for(let i: number = 0; i<c; i++){
-    let height = s * (Math.sqrt(3)/2);
-    let pos: number = 300-c*s;
-    ctx.beginPath();
-    ctx.moveTo(pos+i*s, 400-j*height-height);
-    ctx.lineTo(pos+i*s+s/2, 400-j*height+height);
-    ctx.lineTo(pos+i*s-s/2, 400-j*height+height);
-    ctx.lineTo(pos+i*s, 400-j*height-height);
-    ctx.fill();
-    ctx.closePath();
+function triangle(canvasSize: number, row: number, ) {
+  let size: number = 19;
+  size = canvasSize  / row
+  let height = size * (Math.sqrt(3) / 2);
+  for (let i: number = 0; i <= row; i++) {
+    for (let j: number = 0; j < row - i; j++) {
+      ctx.beginPath();
+      ctx.moveTo((canvasSize / 2 - row * size / 2 + i * size)+size/2 + j * size / 2, (canvasSize - height) - height * j);
+      ctx.lineTo((canvasSize / 2 - row * size / 2 + i * size)+size/2 + j * size / 2 + size / 2, canvasSize - height * j);
+      ctx.lineTo((canvasSize / 2 - row * size / 2 + i * size)+size/2 + j * size / 2 - size / 2, canvasSize - height * j);
+      ctx.lineTo((canvasSize / 2 - row * size / 2 + i * size)+size/2 + j * size / 2, (canvasSize - height) - height * j);
+      ctx.lineWidth = 2;
+      ctx.stroke();
+    }
   }
 }
-
-}
-pyramid(3)
+triangle(600, 1)
