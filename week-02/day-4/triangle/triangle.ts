@@ -3,7 +3,7 @@
 const canvas = document.querySelector('.main-canvas') as HTMLCanvasElement;
 const ctx = canvas.getContext('2d');
 
-function triangle(canvasSize: number, row: number, ) {
+function triangle(canvasSize: number, row: number) {
   let size: number = 19;
   size = canvasSize  / row
   let height = size * (Math.sqrt(3) / 2);
@@ -19,4 +19,4 @@ function triangle(canvasSize: number, row: number, ) {
     }
   }
 }
-triangle(600, 1)
+triangle(600, 3)

@@ -2,8 +2,20 @@
 
 const canvas = document.querySelector('.main-canvas') as HTMLCanvasElement;
 const ctx = canvas.getContext('2d');
-//let size: number = 400;
-function row(lineDensity,canvasSize, divider, xCoord, yCoord) {
+
+function getRandom(max) {
+  return Math.floor(Math.random() * Math.floor(max))
+}
+
+function colours() {
+  let r: string = getRandom(255).toString()
+  let g: string = getRandom(255).toString()
+  let b: string = getRandom(255).toString()
+  let rgb: string = 'rgb(' + r.concat(', ', g, ', ', b, ')');
+  return rgb;
+}
+
+  function row(lineDensity,canvasSize, divider, xCoord, yCoord) {
   
   
   
@@ -11,15 +23,15 @@ function row(lineDensity,canvasSize, divider, xCoord, yCoord) {
   for (let j: number = 0; j < divider; j++) {
     for (let i: number = 0; i < x / lineDensity; i++) {
       ctx.beginPath();
-      ctx.strokeStyle = 'purple';
-      ctx.moveTo(xCoord + x + j * x, yCoord + x - i * lineDensity - x * 0.1);
-      ctx.lineTo(xCoord + x + j * x - i * lineDensity, yCoord+0);
+      ctx.strokeStyle = colours();
+      ctx.moveTo(xCoord + x + j * x, yCoord + x - i * lineDensity + x * 0.005);
+      ctx.lineTo(xCoord + x + j * x - i * lineDensity, yCoord);
       ctx.stroke();
     }
     for (let i: number = 0; i < x / lineDensity; i++) {
       ctx.beginPath();
-      ctx.strokeStyle = 'green';
-      ctx.moveTo(xCoord + x - i * lineDensity - x * 0.1 + j * x, yCoord + x);
+      ctx.strokeStyle = colours();
+      ctx.moveTo(xCoord + x - i * lineDensity + x * 0.05 + j * x, yCoord + x);
       ctx.lineTo(xCoord + j * x,yCoord + x - i * lineDensity);
       ctx.stroke();
     }
@@ -38,4 +50,4 @@ function linePlay(canvasSize,divider){
 }
 
 }
-linePlay(400,64)
+linePlay(400,6)

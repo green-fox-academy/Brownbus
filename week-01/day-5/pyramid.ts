@@ -14,14 +14,14 @@
 
  'use strict';
  let lines: number = 25;
- let sor: string = '';
+ let row: string = '';
  for (let i: number = 0; i<lines; i++){
    for (let j: number = 1; j<lines-i; j++){
-    sor += ' ';
+    row += ' ';
     }
     for(let k: number = 0; k <= i * 2; k++){
-    sor += '*'; 
+    row += '*'; 
  }
- console.log(sor);
- sor = '';
+ console.log(row);
+ row = '';
  }
