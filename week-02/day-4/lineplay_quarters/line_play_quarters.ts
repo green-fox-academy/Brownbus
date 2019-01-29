@@ -50,4 +50,4 @@ function linePlay(canvasSize,divider){
 }
 
 }
-linePlay(400,1)
+linePlay(400,64)

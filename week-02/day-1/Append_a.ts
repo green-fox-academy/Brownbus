@@ -18,4 +18,4 @@ function greet(a :string){
   }
 }
 
-console.log(greet(name));
+document.write(greet(name));

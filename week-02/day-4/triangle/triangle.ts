@@ -19,4 +19,4 @@ function triangle(canvasSize: number, row: number) {
     }
   }
 }
-triangle(600, 20)
+triangle(600, 100)
