@@ -28,5 +28,6 @@ for( let i: number = 0; i < fileContent.length; i++){
 }
 console.log(ipArr2)
 console.log('GET= '+get.length, 'POST=', post.length-get.length)
+console.log(post[400])
 }
 IP('log.txt')

@@ -1,39 +1,10 @@
+let arr = ['a','b','c','d','e','f','g','i','j','k','l','m','n','o','p','q','r','s','t','u','v','x','y','z','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u',',v','x','y','z']
+let newWord: string = '';
 
+let words:string = 'cfbvujgvm jt cfuufs uibo vhmz'
 
+for(let i: number = 0; i< words.length; i++){
+    newWord += arr[arr.indexOf(words[i])+23]
 
-
-for(let i: number =0; i<3; i++)
-
-
-
-if (arr[0][1] === arr[0][2] && arr[0][2] === arr[0][0]) {
-  console.log('O');
-} else if (arr[1][1] === arr[1][2] && arr[1][2] === arr[1][0]) {
-  console.log('O')
-} else if (arr[2][1] === arr[2][2] && arr[2][2] === arr[2][0]) {
-  console.log('O')
-} else if (arr[0][0] === arr[1][0] && arr[1][0] === arr[2][0]) {
-  console.log('O'); 
-} else if (arr[0][1] === arr[1][1] && arr[1][1] === arr[2][1]) {
-  console.log('O')
-} else if (arr[0][2] === arr[1][2] && arr[1][2] === arr[2][2]) {
-  console.log('O')
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-else if (arr[0][0] === arr[1][1] && arr[1][1] === arr[2][2]) {
-  console.log('O')
-} else if (arr[0][2] === arr[1][1] && arr[1][1] === arr[2][0]) {
-  console.log('O')
-}
+console.log(newWord)
