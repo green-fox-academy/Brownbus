@@ -10,7 +10,7 @@ also we can reset() the value to the initial value */
 
 class Counter {
   integer: number;
-  constructor(i = 1) {
+  constructor(i = 0) {
     this.integer = i;
   }
   add(...n) {
