@@ -10,4 +10,4 @@ function adder(n) {
     return n + adder(n - 1)
   }
 }
-console.log(adder(5))
+console.log(adder(3))
