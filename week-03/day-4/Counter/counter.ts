@@ -3,11 +3,14 @@ export { };
 // Write a recursive function that takes one parameter: n and counts down from n.
 function countDown(n) {
   if (n <= 0) {
-    return 0;
+    return n;
   }
   else {
-    countDown(n - 1)
-    console.log(n)
+   console.log(n)
+    return n-countDown(n-1)
+  
+  
   }
+
 }
-countDown(111)
+countDown(10)
