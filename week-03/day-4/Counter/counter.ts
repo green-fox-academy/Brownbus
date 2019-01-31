@@ -6,11 +6,8 @@ function countDown(n) {
     return n;
   }
   else {
-   console.log(n)
-    return n-countDown(n-1)
-  
-  
+    console.log(n)
+    return n - countDown(n - 1)
   }
-
 }
 countDown(10)
