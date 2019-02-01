@@ -34,7 +34,7 @@ function something(startX, startY, len, angle, width) {
   ctx.lineWidth = width
   ctx.stroke();
 
-  if (len < 10) {
+  if (len < 1) {
     ctx.restore();
     return;
   }
@@ -44,5 +44,5 @@ function something(startX, startY, len, angle, width) {
 }
 
 
-something(200, 400, 60, 0, 2)
+something(200, 400, 60, 0, 3)
 
