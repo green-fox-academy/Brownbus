@@ -7,7 +7,7 @@ function getRandom(max) {
   return Math.floor(Math.random() * Math.floor(max))
 }
 
-function colours() {
+function rgb() {
   let r: string = getRandom(255).toString()
   let g: string = getRandom(255).toString()
   let b: string = getRandom(255).toString()
@@ -15,22 +15,22 @@ function colours() {
   return rgb;
 }
 
+let colour1 = rgb()
+let colour2 = rgb()
   function row(lineDensity,canvasSize, divider, xCoord, yCoord) {
-  
-  
   
   let x: number = canvasSize / divider;
   for (let j: number = 0; j < divider; j++) {
     for (let i: number = 0; i < x / lineDensity; i++) {
       ctx.beginPath();
-      ctx.strokeStyle = colours();
+      ctx.strokeStyle = colour1;
       ctx.moveTo(xCoord + x + j * x, yCoord + x - i * lineDensity + x * 0.005);
       ctx.lineTo(xCoord + x + j * x - i * lineDensity, yCoord);
       ctx.stroke();
     }
     for (let i: number = 0; i < x / lineDensity; i++) {
       ctx.beginPath();
-      ctx.strokeStyle = colours();
+      ctx.strokeStyle = colour2;
       ctx.moveTo(xCoord + x - i * lineDensity + x * 0.05 + j * x, yCoord + x);
       ctx.lineTo(xCoord + j * x,yCoord + x - i * lineDensity);
       ctx.stroke();
