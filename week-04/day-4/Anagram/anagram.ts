@@ -12,8 +12,3 @@ for(let i: number = 0; i < string1.length; i++){
 }return result;
 }
 console.log(anagram('dog', 'god'))
-
-
-/* Write a function, that takes two strings and returns a boolean value based on
-if the two strings are Anagramms or not.
-Create a test for that. */
