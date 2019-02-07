@@ -5,7 +5,7 @@ let test = require('tape')
 
 test('Sum', t => {
   let sum1 = new Sum;
-  let testArray: number[] = [null]
+  let testArray = ['string']
   let actual: number = sum1.sum(testArray)
   let expected: number = 0;
   t.equal(actual, expected)
