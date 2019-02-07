@@ -1,5 +1,7 @@
 'use strict';
 
+import { listenerCount } from "cluster";
+
 export class Sum {
   sum(list: number[]) {
     let sum = 0;
