@@ -1,0 +1,25 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  height: 720px;
+  }
+  
+  .green{
+    width: 33%;
+    height: 25%;
+  background-color: green;
+  }
+  
+  
+  .yellow{
+    width: 33%;
+    height: 50%;
+  background-color: yellow;
+  }
+  
+  
+  .purple{
+    width: 33%;
+    height: 25%;
+  background-color: purple;
+  }
