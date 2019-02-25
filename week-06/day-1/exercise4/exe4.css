@@ -1,0 +1,42 @@
+body{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 1400px;
+  height: 80px;
+  background-color:purple;
+  padding-left: 0;
+  margin-bottom: 0;
+  }
+  
+  .item{
+  list-style-type: none;
+  width: 150px;
+  height: 60px;
+  background-color: cyan;
+  margin-left: 30px;
+  }
+
+  #theBody{
+    width: 1400px;
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  
+  
+  .yellow{
+    height: 1200px;
+    width: 75%;
+    background-color: yellow;
+  }
+  #green{
+    height: 1200px;
+    width: 25%;
+    background-color: green;
+  }
