@@ -1,23 +1,24 @@
 .container{
   display: flex;
+  flex-direction: row-reverse;
   }
   
   .green{
-    width: 33%;
+    width: 25%;
     height: 100px;
   background-color: green;
   }
   
   
   .yellow{
-    width: 33%;
+    width: 50%;
     height: 100px;
   background-color: yellow;
   }
   
   
   .purple{
-    width: 33%;
+    width: 25%;
     height: 100px;
   background-color: purple;
   }
