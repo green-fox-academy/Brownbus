@@ -13,3 +13,7 @@ let conceitedKing = [king, document.getElementsByClassName("asteroid b326")]
 alert(conceitedKing[0].innerText)
 alert(conceitedKing[1][0].innerText);
 //4
+let noBusiness = [conceitedKing[0], conceitedKing[1][0], businessLamp[0][1]]
+for(let i = 0; i <noBusiness.length; i++){
+  console.log(noBusiness[i].innerText)
+}
