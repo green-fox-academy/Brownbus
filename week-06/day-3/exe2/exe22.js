@@ -6,12 +6,23 @@ for(let i = 0; i < listItems.length; i++){
 }
 
 
-//THIS IS THE ?CLASS? WAY
+//CLASS WAY
+let ul = document.querySelector('ul');
+ul.setAttribute('class', 'style')
 let styleTag = document.createElement('style')
-styleTag.innerHTML = 'ul { background-color : limegreen }';
+styleTag.innerHTML = '.style { background-color : limegreen }';
 let parent = document.getElementsByTagName('body')
 parent[0].appendChild(styleTag)
 
+
+
+
+//THIS IS THE TAG WAY
+/* let styleTag = document.createElement('style')
+styleTag.innerHTML = 'ul { background-color : limegreen }';
+let parent = document.getElementsByTagName('body')
+parent[0].appendChild(styleTag)
+ */
  
 
 
