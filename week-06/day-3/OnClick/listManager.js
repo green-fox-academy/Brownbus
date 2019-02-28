@@ -94,11 +94,11 @@ body.appendChild(ulTag);
 
 let buttons = document.getElementsByTagName('button')
 for (let i = 0; i < buttons.length; i++) {
-  buttons[i].setAttribute('style', 'background-color: grey; width: 200px; height: 25px; border: solid 2px; border-color: blue; border-radius: 5%')
+  buttons[i].setAttribute('style', 'background-color: grey; width: 200px; height: 25px; border: solid 2px; border-color: blue; border-radius: 5%; margin: 1px;')
 }
 
 let styleTag = document.createElement('style')
-styleTag.innerHTML = 'div { \n display:flex; \n flex-direction:column; \n margin-top: 16px;}'
+styleTag.innerHTML = 'div { \n display:flex; \n flex-direction:column; \n margin-top: 13px;}'
 body.appendChild(styleTag)
 
 ulTag.setAttribute('style', 'display:flex; flex-direction:column; height:auto; width: 200px; border:solid 1px; list-style:none;padding:0px;  ')
