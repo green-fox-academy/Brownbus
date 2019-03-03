@@ -4,11 +4,11 @@
 const express = require('express');
 const multer = require('multer'); // file storing middleware
 const bodyParser = require('body-parser'); //cleans our req.body
+const fs = require('fs')
 const app = express();
 const PORT = 3000;
 const path = require('path')
 //let numberedThumbs = require('./assets/galery.js')
-let counter = 10;
 
 app.use(bodyParser.urlencoded({ extended: false })); //handle body requests
 app.use(bodyParser.json()); // let's make JSON work too!
@@ -16,8 +16,12 @@ app.use(bodyParser.json()); // let's make JSON work too!
 //app.use('/', express.static(__dirname + '/assets')); 
 app.use('/assets', express.static('assets'))
 app.use('/assets/pictures', express.static('pictures'))
-
+app.use('/assets/dir', express.static('pictures'))
 // FOR IMAGE SAVING
+
+let numberOfPictures = fs.readdirSync('./assets/pictures')
+let counter = numberOfPictures.length - 1 ;
+let firstToShow = 0;
 
 const multerConfig = {
 
@@ -59,17 +63,22 @@ app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
   res.render('home', {
-    img: `<img src='./assets/pictures/0.jpg' alt="this is an image" id="selected"/>`,
-    thumbnail: `<ul></ul>`
+    img: `<img src='./assets/pictures/${firstToShow}.jpg' alt="this is an image" id="selected"/>`,
+    thumbnail: `<ul></ul>`,
+    pictureCount : counter,
   })
 })
 
 //route2
  app.post('/upload',  multer(multerConfig).single('photo'),  function (req, res) {
-  /* res.send('Complete!'); */
-  counter += 1;
-  console.log('server:', counter)
+   counter += 1;
+   console.log('server:', counter)
+   firstToShow = counter-1;
+   setTimeout(() => {
+     res.redirect('/');      
+   }, 500); 
 }); 
+
 
 
 

@@ -153,3 +153,6 @@ display: none
   cursor: pointer;
 }  
 
+#pics{
+  display: none;
+}
