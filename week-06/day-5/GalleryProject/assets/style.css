@@ -34,6 +34,41 @@ button:hover{
 
 
 
+#selectedImageHT{
+  padding: 0px;
+  margin: 0px;
+  height: 720px;
+  width: 1280px;
+  position: relative;  
+}
+
+#selectedDescription{
+  margin: 0px;
+  position: absolute;
+  width: 100%;
+  height: 30%;
+  bottom: 0%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  background-color: black;
+  overflow: scroll;
+}
+
+#selectedDescription::-webkit-scrollbar{
+  display: none;
+}
+
+ #seleH1{
+  bottom: 8px;
+  left: 16px;
+  color: white;
+}
+#seleH3{
+  bottom: 8px;
+  left: 16px;
+  color: white;
+}
+
 #selected{
   height: 720px;
   width: 1280px;
@@ -46,6 +81,10 @@ ul{
   margin:0;
   max-height: 720px;
   overflow: scroll;
+}
+
+ul::-webkit-scrollbar{
+  display: none;
 }
 
 li{
@@ -72,7 +111,6 @@ li{
   border-radius: 5%;
 }
 
-
 .thumb:hover {
  
   transition: filter 0.2s ease-in-out;
@@ -91,6 +129,7 @@ li{
   justify-content: center;
   align-content: center;
   /* padding-top: 10px; */
+  
 }
 
 
@@ -154,5 +193,8 @@ display: none
 }  
 
 #pics{
+  display: none;
+}
+#image_desc{
   display: none;
 }

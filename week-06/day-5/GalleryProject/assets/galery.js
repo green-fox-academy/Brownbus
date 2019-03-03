@@ -7,14 +7,42 @@ let ulTag = document.querySelector('ul')
 let body = document.querySelector('body')
 let submit = document.getElementById('sumbit')
 let PicCount = document.getElementById('pics')
+document.getElementById('selectedImage')
 document.body.addEventListener('keydown', onKeyPress);
+let picTitle = document.getElementById('seleH1')
+let picDesc = document.getElementById('seleH3')
+
 
 let counter = 0;
 let numberOfThumbs = parseInt(PicCount.innerHTML);
 
 
-function thumnailLoader(){
+
+if(document.getElementById(`iden${counter}`).innerHTML.length > 0){
+  picTitle.innerHTML = document.getElementById(`iden${counter}`).innerHTML
+  }else{ picTitle.innerHTML = 'Lorem Ipsum'}
   
+  
+  if(document.getElementById(`descIden${counter}`).innerHTML.length > 4){
+    picDesc.innerHTML = document.getElementById(`descIden${counter}`).innerHTML
+    }else{ picDesc.innerHTML = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+  }
+  
+
+function descriptionLoader(){
+  if(document.getElementById(`iden${counter}`).innerHTML.length > 0){
+    picTitle.innerHTML = document.getElementById(`iden${counter}`).innerHTML
+    }else{ picTitle.innerHTML = 'Lorem Ipsum'}
+    
+    
+    if(document.getElementById(`descIden${counter}`).innerHTML.length > 4){
+      picDesc.innerHTML = document.getElementById(`descIden${counter}`).innerHTML
+      }else{ picDesc.innerHTML = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+    }
+}
+
+
+function thumnailLoader(){
   while (ulTag.hasChildNodes()){
     ulTag.removeChild(ulTag.lastChild);
   } 
@@ -26,6 +54,15 @@ function thumnailLoader(){
     imgTag.setAttribute('src', `./assets/pictures/${i}.jpg`)
     imgTag.setAttribute('class', `thumb`)
     imgTag.setAttribute('id', `thumb${i}`)
+    imgTag.setAttribute('onclick', `  if(document.getElementById('iden${i}').innerHTML.length > 0){
+      picTitle.innerHTML = document.getElementById('iden${i}').innerHTML
+      }else{ picTitle.innerHTML = 'Lorem Ipsum'}
+      
+      
+      if(document.getElementById('descIden${i}').innerHTML.length > 4){
+        picDesc.innerHTML = document.getElementById('descIden${i}').innerHTML
+        }else{ picDesc.innerHTML = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+      }`)
     liTag.appendChild(imgTag)
     ulTag.appendChild(liTag)
   }
@@ -37,9 +74,7 @@ function adder(){
 
 thumnailLoader()
 
-function uploadPicSetter(){
-  selectedImage.setAttribute('src', `./assets/pictures/${numberOfThumbs-1}.jpg`)
-}
+
 
 
 function right() {
@@ -47,9 +82,15 @@ function right() {
   counter++
   }
   selectedImage.setAttribute('src', `./assets/pictures/${counter}.jpg`)
-  if (counter < numberOfThumbs-1) {
-    thumnailLoader()
-  }
+  if(document.getElementById(`iden${counter}`).innerHTML.length > 0){
+  picTitle.innerHTML = document.getElementById(`iden${counter}`).innerHTML
+  }else{ picTitle.innerHTML = 'Lorem Ipsum'}
+  
+  
+  if(document.getElementById(`descIden${counter}`).innerHTML.length > 4){
+    picDesc.innerHTML = document.getElementById(`descIden${counter}`).innerHTML
+    }else{ picDesc.innerHTML = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'}
+  
 }
 
 function left() {
@@ -57,9 +98,16 @@ function left() {
     counter--
   }
   selectedImage.setAttribute('src', `./assets/pictures/${counter}.jpg`)
-  if (counter > 0) {
-    thumnailLoader()
-  }
+  if(document.getElementById(`iden${counter}`).innerHTML.length > 0){
+    picTitle.innerHTML = document.getElementById(`iden${counter}`).innerHTML
+    }else{ picTitle.innerHTML = 'Lorem Ipsum'}
+    
+    
+    if(document.getElementById(`descIden${counter}`).innerHTML.length > 4){
+      picDesc.innerHTML = document.getElementById(`descIden${counter}`).innerHTML
+      }else{ picDesc.innerHTML = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'}
+    
+
 }
 buttonLeft.onclick = () => {
   left()

@@ -1,34 +1,52 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title > Gallery </title>
-    <link rel="stylesheet" href="./assets/style.css">
-    
-    
-  </head>
-  <body>  
-     <div id = 'gallery'>
-       <button id = 'leftButton'>  <  </button>
-       <%- img %>
-       <div id = 'thumbnails'>
-         <%- thumbnail %>
+
+<head>
+  <meta charset="utf-8">
+  <title> Gallery </title>
+  <link rel="stylesheet" href="./assets/style.css">
+
+
+</head>
+
+<body>
+  <div id='gallery'>
+    <button id='leftButton'> < </button>
+
+
+    <div id="selectedImageHT"> 
+        <%- img %>
+        <div id='selectedDescription'>
+          <h1 id='seleH1'></h1>
+          <h3 id='seleH3'></h3>
         </div>
-        <button id = 'rightButton'>  >  </button>   
-      </div>
+    </div>
+  
+  
+  <div id='thumbnails'>
+    <%- thumbnail %>
+  </div>
+  
+  
+  <button id='rightButton'> > </button>
+  </div>
 
-      
-      <form action="/upload" enctype="multipart/form-data" method="POST" onsubmit='adder(); thumnailLoader()'> 
-      <label for="file-upload" class="custom-file-upload">Choose File to Upload</label>
-       <input id='file-upload' type="file" name="photo" /> 
-       <input type="submit" value="Upload Photo"/>
 
-     </form>
-      
-<div id='pics'> <%= pictureCount %> </div>
-<script src="./assets/galery.js"></script>
 
-  </body>
-  </html>
+
+  <form action="/upload" enctype="multipart/form-data" method="POST" onsubmit='adder(); thumnailLoader()'>
+    <label for="file-upload" class="custom-file-upload">Choose File to Upload</label>
+    <input id='file-upload' type="file" name="photo" />
+    <input type="text" name="title">
+    <input type="text" name="desc">
+    <input type="submit" value="Upload Photo" />
+
+  </form>
+  <div id='pics'> <%= pictureCount %> </div>
+  <div id='image_desc'> <%- descriptionAndTitle %> </div>
+
+  <script src="./assets/galery.js"></script>
+
+</body>
+
+</html>
