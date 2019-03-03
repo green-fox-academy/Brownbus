@@ -39,10 +39,12 @@ button:hover{
   margin: 0px;
   height: 720px;
   width: 1280px;
-  position: relative;  
+  position: relative; 
 }
 
+
 #selectedDescription{
+  visibility: hidden;
   margin: 0px;
   position: absolute;
   width: 100%;
@@ -50,15 +52,23 @@ button:hover{
   bottom: 0%;
   left: 50%;
   transform: translate(-50%, 0%);
+  border: solid grey 2px;
+  border-radius: 3%;
   background-color: black;
+  opacity: 0.8;
   overflow: scroll;
+}
+
+
+#selected:hover ~ #selectedDescription{
+  visibility: visible;
 }
 
 #selectedDescription::-webkit-scrollbar{
   display: none;
 }
 
- #seleH1{
+#seleH1{
   bottom: 8px;
   left: 16px;
   color: white;
@@ -73,6 +83,13 @@ button:hover{
   height: 720px;
   width: 1280px;
   border-radius: 0.3%;
+  -webkit-filter: grayscale(0%);
+  filter: grayscale(0%);
+}
+#selected:hover{
+  transition: filter 1s ease-in-out;
+  -webkit-filter: grayscale(80%);
+  filter: grayscale(80%)
 }
 
 ul{
@@ -149,8 +166,8 @@ form{
   display: flex;
   align-content: center;
   justify-content: center;
-  margin-left:68px;  
-  max-width: 600px;
+  margin-left:224px;  
+  max-width: 1280px;
 }
 
 input[type=submit]{
@@ -172,6 +189,20 @@ input[type=submit]:hover{
 
 input[type=file]{
 display: none
+}
+
+input[type=text]{
+  font-family: Montserrat, sans-serif;
+  font-size: 24px;
+  color: rgb(94, 94, 94);
+  background-color: rgb(190, 190, 190);
+  height:45px;
+  margin-top: 25px;
+  margin-right: 25px;
+  margin-left: 25px;
+  border: solid grey 2px;
+  border-radius: 5%;
+  width: 300px;
 }
 
 
