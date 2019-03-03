@@ -9,19 +9,24 @@
     
     
   </head>
-  <body>
- 
-    <div id = 'gallery'>
-      <button id = 'leftButton'>  <  </button>
-      <%- img %>
-      <div id = 'thumbnails'>
-      <%- thumbnail %>
+  <body>     
+     <div id = 'gallery'>
+       <button id = 'leftButton'>  <  </button>
+       <%- img %>
+       <div id = 'thumbnails'>
+         <%- thumbnail %>
+        </div>
+        <button id = 'rightButton'>  >  </button>   
       </div>
-      <button id = 'rightButton'>  >  </button>   
-    </div>
-    
-    
-    
+
+      
+      <form action="/upload" enctype="multipart/form-data" method="POST" onsubmit='adder();'> 
+      <label for="file-upload" class="custom-file-upload">Choose File to Upload</label>
+       <input id='file-upload' type="file" name="photo" /> 
+       <input type="submit" value="Upload Photo"/>
+     </form>
+      
+
 <script src="./assets/galery.js"></script>
   </body>
   </html>

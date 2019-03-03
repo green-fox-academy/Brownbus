@@ -29,6 +29,7 @@ button:hover{
   font-size: 50px;
   color: whitesmoke;
   opacity: 0.9;
+  cursor: pointer;
 }
 
 
@@ -36,6 +37,7 @@ button:hover{
 #selected{
   height: 720px;
   width: 1280px;
+  border-radius: 0.3%;
 }
 
 ul{
@@ -52,24 +54,34 @@ li{
   overflow: hidden;
 }
 
+.prevList{
+  height: auto;
+  width: auto;
+  padding: 0px;
+  margin: 0px;
+
+}
+
 
 .thumb{
   height: 150px;
-  width: 220px;
+  width: 250px;
   -webkit-filter: grayscale(100%);
   filter: grayscale(100%); 
-  border: 3px whitesmoke solid
+  border: 5px whitesmoke solid;
+  border-radius: 5%;
 }
 
 
 .thumb:hover {
  
-  transition: filter .1s ease-in-out;
+  transition: filter 0.2s ease-in-out;
   -webkit-filter: grayscale(0%);
   filter: grayscale(0%);
-  height: 153px;
-  width: 223px;
+  height: 155px;
+  width: 255px;
   border: 0px;
+  cursor: pointer;
 }
 
 
@@ -82,12 +94,62 @@ li{
 }
 
 
-h1, p {
+h2, p {
   color: black;
   font-family: Montserrat, sans-serif;
-  text-align: center;
 }
 
-h1 {
+h2 {
+  display: flex;
+  justify-content: center;
   font-size: 2em;
 }
+
+
+form{
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  margin-left:68px;  
+  max-width: 600px;
+}
+
+input[type=submit]{
+  font-family: Montserrat, sans-serif;
+  font-size: 16px;
+  margin-top: 25px;
+  background:black;
+  color:white;
+  height: 50px;
+  width: 100;
+  border: 1px solid white;
+  border-radius: 5%;
+  opacity: 0.7;
+}
+input[type=submit]:hover{
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+input[type=file]{
+display: none
+}
+
+
+.custom-file-upload{
+  font-family: Montserrat, sans-serif;
+  background:black;
+  color:white;
+  padding: 13px 10px 14px 10px;
+  margin-right: 25px;
+  margin-top: 25px;
+  border: 1px solid white;
+  border-radius: 5%;
+  opacity: 0.7;
+}
+
+.custom-file-upload:hover{
+  opacity: 0.9;
+  cursor: pointer;
+}  
+
