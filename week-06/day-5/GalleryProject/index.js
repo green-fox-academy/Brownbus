@@ -18,14 +18,16 @@ app.use('/assets', express.static('assets'))
 app.use('/assets/pictures', express.static('pictures'))
 app.use('/assets/dir', express.static('pictures'))
 app.use('/assets/image_desc', express.static('image_desc'))
+app.use('/assets/comments', express.static('comments'))
 
 // FOR IMAGE SAVING
 
 let numberOfPictures = fs.readdirSync('./assets/pictures')
+let commentTxt = fs.readFileSync('./assets/comments/comments.txt', 'utf-8')
 let descDocument = fs.readFileSync('./assets/image_desc/descriptions.txt', 'utf-8')
 let counter = numberOfPictures.length - 1;
 let firstToShow = 0;
-console.log(descDocument)
+
 
 const multerConfig = {
 
@@ -71,11 +73,20 @@ function descSplitter(file) {
     array[i] = array[i].split('\n---\n');
     insideTag += `\n <h1 class='titleForThePics' id="iden${i}">${array[i][0]}</h1>\n<h3 class='descForThePics' id="descIden${i}">${array[i][1]}<h3>`
   }
-  console.log(insideTag)
   return insideTag;
 }
 
-//descSplitter(descDocument)
+function commentEngine(txt){
+  let sepComments = '';
+  let arr = txt.split('===')
+  for(let i = 0; i < arr.length; i++){
+    if(arr[i] !== undefined){
+      sepComments += `<div class="commentBox"><p>${arr[i]}</p></div> \n`
+    }
+  }
+  console.log(sepComments)
+  return sepComments;
+}
 
 app.get('/', (req, res) => {
   res.render('home', {
@@ -83,8 +94,7 @@ app.get('/', (req, res) => {
     thumbnail: `<ul></ul>`,
     pictureCount: counter,
     descriptionAndTitle : descSplitter(descDocument),
-    /* title: `</h1 id='seleH1'><script> let tit = document.getElementById(iden${firstToShow}).innerHTML; picTitle.innerHTML= tit;  </script> </h1>` , 
-    description: `</h3 id='seleH3'><script> let des = document.getElementById(descIden${firstToShow}).innerHTML; picDesc.innerHTML = des;  </script> </h3>` */ 
+    comments: commentEngine(commentTxt), //put comments here
   })
 })
 
@@ -102,12 +112,24 @@ app.post('/upload', multer(multerConfig).single('photo'), function (req, res) {
   descSplitter(descDocument)
   firstToShow = counter - 1;
   descDocument = fs.readFileSync('./assets/image_desc/descriptions.txt', 'utf-8')
+  commentTxt = fs.readFileSync('./assets/comments/comments.txt', 'utf-8');
 
   setTimeout(() => {
     res.redirect('/');
   }, 500);
 });
 
+//COMMENTS
+app.post('/comment', function(req, res){
+  if(req.body.comment.length>0){
+    fs.appendFileSync('./assets/comments/comments.txt',`${Date.now()} commented: \n ${req.body.comment}\n===\n`);
+    commentTxt = fs.readFileSync('./assets/comments/comments.txt', 'utf-8');
+    console.log(req.body.comment)
+    setTimeout(() => {
+      res.redirect('/');
+    }, 500);
+  }
+})
 
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);

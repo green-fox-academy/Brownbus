@@ -10,43 +10,57 @@
 </head>
 
 <body>
-  <div id='gallery'>
-    <button id='leftButton'> < </button>
+  <div id='absolute'>
 
-
-    <div id="selectedImageHT"> 
+    <div id='gallery'>
+      <button id='leftButton'> < </button>
+      
+      
+      <div id="selectedImageHT"> 
         <%- img %>
         <div id='selectedDescription'>
           <h1 id='seleH1'></h1>
           <h3 id='seleH3'></h3>
         </div>
+      </div>
+      
+      
+      <div id='thumbnails'>
+        <%- thumbnail %>
+      </div>
+      
+      
+      <button id='rightButton'> > </button>
     </div>
-  
-  
-  <div id='thumbnails'>
-    <%- thumbnail %>
+    
+    
+    
+    
+    <form action="/upload" enctype="multipart/form-data" method="POST" onsubmit='adder(); thumnailLoader()'>
+      <label for="file-upload" class="custom-file-upload">Choose File to Upload</label>
+      <input id='file-upload' type="file" name="photo" />
+      <input type="text" name="title" placeholder='Name your Picture'>
+      <input type="text" name="desc" placeholder='Give it a Description'>
+      <input type="submit" value="Upload Photo" />
+    </form>
   </div>
-  
-  
-  <button id='rightButton'> > </button>
-  </div>
-
-
-
-
-  <form action="/upload" enctype="multipart/form-data" method="POST" onsubmit='adder(); thumnailLoader()'>
-    <label for="file-upload" class="custom-file-upload">Choose File to Upload</label>
-    <input id='file-upload' type="file" name="photo" />
-    <input type="text" name="title" value='Name your Picture'>
-    <input type="text" name="desc" value='Give it a Description'>
-    <input type="submit" value="Upload Photo" />
-
-  </form>
-  <div id='pics'> <%= pictureCount %> </div>
-  <div id='image_desc'> <%- descriptionAndTitle %> </div>
-
-  <script src="./assets/galery.js"></script>
-
-</body>
+    
+    
+    <div id ='comment_section'>
+      <button id='open_comments'> Click here to view the comments</button>
+      <div id='hider' style='display:none'>
+          <form action="/comment" method="POST">
+            <input id='commentInput' type="text" name='comment' placeholder='Comment Here'>
+            <input type="submit" value="Send Comment"/>
+          </form>
+          <%- comments %> 
+        </div>
+      </div>
+      
+      <div id='pics'> <%= pictureCount %> </div>
+      <div id='image_desc'> <%- descriptionAndTitle %> </div>
+      
+      <script src="./assets/galery.js"></script>
+    </body>
 
 </html>
