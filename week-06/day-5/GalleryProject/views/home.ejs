@@ -49,14 +49,18 @@
     <div id ='comment_section'>
       <button id='open_comments'> Click here to view the comments</button>
       <div id='hider' style='display:none'>
-          <form action="/comment" method="POST">
+          <form id='add_comment' action="/comment" method="POST">
             <input id='commentInput' type="text" name='comment' placeholder='Comment Here'>
-            <input type="submit" value="Send Comment"/>
+            <input type="submit" value="Send Comment" onsubmit="{commentChecker = 1}"/>
           </form>
+          <div id = "commentContainer">
           <%- comments %> 
+          </div>
         </div>
       </div>
       
+      
+      <div id='commNum' style='display: none'> <%= commentchecker %> </div>
       <div id='pics'> <%= pictureCount %> </div>
       <div id='image_desc'> <%- descriptionAndTitle %> </div>
       

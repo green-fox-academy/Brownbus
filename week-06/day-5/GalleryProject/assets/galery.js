@@ -15,9 +15,18 @@ let commentOpener = document.getElementById('open_comments');
 let commentSection = document.getElementById('hider');
 let galHider = document.getElementById('absolute');
 
-
+let commNumChecker = document.getElementById('commNum');
 let counter = 0;
 let numberOfThumbs = parseInt(PicCount.innerHTML);
+
+let thisIsBinary = 1;
+let commentChecker = commNumChecker.innerHTML;
+
+if(commentChecker == 1){
+  commentSection.setAttribute('style', '')
+  galHider.setAttribute('style', 'display:none;')
+  commentOpener.innerHTML = 'Hide Comments';
+}
 
 
 
@@ -140,12 +149,11 @@ commentOpener.onclick = () => {
     commentSection.setAttribute('style', 'display:none;')
     galHider.setAttribute('style', '');
     commentOpener.innerHTML = 'Click here to view the comments';
+    thisIsBinary = 0;
   } else {
     commentSection.setAttribute('style', '')
     galHider.setAttribute('style', 'display:none;')
     commentOpener.innerHTML = 'Hide Comments';
+    thisIsBinary = 1;
   }
 }
-
-
-

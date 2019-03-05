@@ -6,6 +6,8 @@ const PORT = 3000;
 
 app.set('view engine', 'ejs');
 
+
+
 app.get('/', (req, res) => {
   // render `home.ejs`
   let name = req.query.name;
@@ -18,6 +20,7 @@ app.get('/', (req, res) => {
     title: ` Hello ${name}!`,
   });
 });
+
 
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);

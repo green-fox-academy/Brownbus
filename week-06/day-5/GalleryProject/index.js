@@ -10,7 +10,7 @@ const PORT = 3000;
 const path = require('path')
 
 app.use(bodyParser.urlencoded({ extended: false })); //handle body requests
-app.use(bodyParser.json()); // let's make JSON work too!
+app.use(bodyParser.json());
 
 
 app.use('/assets', express.static('assets'))
@@ -26,6 +26,7 @@ let commentTxt = fs.readFileSync('./assets/comments/comments.txt', 'utf-8')
 let descDocument = fs.readFileSync('./assets/image_desc/descriptions.txt', 'utf-8')
 let counter = numberOfPictures.length - 1;
 let firstToShow = 0;
+let commentCheck = 0;
 
 
 const multerConfig = {
@@ -66,7 +67,7 @@ const multerConfig = {
 app.set('view engine', 'ejs');
 
 function descSplitter(file) {
-  let insideTag = ''; 
+  let insideTag = '';
   let array = file.split('===');
   for (let i = 0; i < array.length; i++) {
     array[i] = array[i].split('\n---\n');
@@ -75,11 +76,12 @@ function descSplitter(file) {
   return insideTag;
 }
 
-function commentEngine(txt){
+function commentEngine(txt) {
   let sepComments = '';
   let arr = txt.split('===')
-  for(let i = 0; i < arr.length; i++){
-    if(arr[i] !== undefined){
+  arr = arr.reverse()
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] !== undefined) {
       sepComments += `<div class="commentBox"><p>${arr[i]}</p></div> \n`
     }
   }
@@ -91,38 +93,39 @@ app.get('/', (req, res) => {
     img: `<img src='./assets/pictures/${firstToShow}.jpg' alt="this is an image" id="selected"/>`,
     thumbnail: `<ul></ul>`,
     pictureCount: counter,
-    descriptionAndTitle : descSplitter(descDocument),
+    descriptionAndTitle: descSplitter(descDocument),
     comments: commentEngine(commentTxt),
+    commentchecker: commentCheck,
   })
+  commentCheck = 0;
 })
 
-//route2
+
+//UPLOAD
 app.post('/upload', multer(multerConfig).single('photo'), function (req, res) {
   counter += 1;
   console.log('server:', counter)
   if (req.body.title.length > 0 && req.body.desc.length > 0) {
     fs.appendFileSync('./assets/image_desc/descriptions.txt', `${req.body.title}\n---\n${req.body.desc}\n===\n`)
   } else {
-    fs.appendFileSync('./assets/image_desc/descriptions.txt', `Lorem Ipsum\n---\n n \n===\n`)
+    fs.appendFileSync('./assets/image_desc/descriptions.txt', `Lorem Ipsum\n---\n   \n===\n`)
   }
-  console.log(req.body.title);
-  console.log(req.body.desc);
   descSplitter(descDocument)
   firstToShow = counter - 1;
   descDocument = fs.readFileSync('./assets/image_desc/descriptions.txt', 'utf-8')
   commentTxt = fs.readFileSync('./assets/comments/comments.txt', 'utf-8');
-
   setTimeout(() => {
     res.redirect('/');
-  }, 500);
+  }, 200);
 });
 
 //COMMENTS
-app.post('/comment', function(req, res){
-  if(req.body.comment.length>0){
-    fs.appendFileSync('./assets/comments/comments.txt',`<strong>${Date.now()} commented:</strong> <br><br> ${req.body.comment}\n===\n`);
+app.post('/comment', function (req, res) {
+  if (req.body.comment.length > 0) {
+    fs.appendFileSync('./assets/comments/comments.txt', `<strong>${Date.now()} commented:</strong> <br><br> ${req.body.comment}\n===\n`);
     commentTxt = fs.readFileSync('./assets/comments/comments.txt', 'utf-8');
-    console.log(req.body.comment)
+    //console.log(req.body.comment)
+    commentCheck = 1;
     setTimeout(() => {
       res.redirect('/');
     }, 500);

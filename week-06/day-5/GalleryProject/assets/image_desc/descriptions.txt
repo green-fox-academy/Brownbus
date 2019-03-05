@@ -6,47 +6,8 @@ Deck
 ---
 A wonderful sight of a lake with a rustic (and quite dangerous looking) deck just staring at the mountains surrounding this body of water...
 ===
-LOREM IPSUM
+
+Blossom
 ---
- n 
-===
-LOREM IPSUM
----
- n 
-===
-Ship
----
-This is a ship on the blue water
-===
-Bench ssds
----
-this is a bench
-===
-planet
----
-description
-===
-Panda
----
-This is a picture of a panda drawing playing with an ornament
-===
-Lorem Ipsum
----
- n 
-===
-Lorem Ipsum
----
- n 
-===
-Lorem Ipsum
----
- n 
-===
-Lorem Ipsum
----
- n 
-===
-Lorem Ipsum
----
- n 
+A beautiful cherry blossom tree in the park..
 ===

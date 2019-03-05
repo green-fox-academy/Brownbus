@@ -230,17 +230,34 @@ input[type=text]{
 }
 
 #open_comments{
-  margin-top: 70px;
+  position: sticky;
+  top: 0px;
+  margin-top: 10px;
   font-size: 24px;
   height: 80px;
-  width: 100%
+  width: 100%;
+  opacity: 0.8;
+
 }
 
-#hider{
-  flex-direction: column;
-  align-content: flex-start;
+#hider{ 
+  margin-top: 10px;
   background-color: rgb(22, 22, 22);
   opacity: 0.6;
+  
+}
+#open_comments:hover{
+  opacity: 0.9;
+}
+
+#add_comment{
+  position: sticky;
+  top: 80px;
+  background-color: black;
+  width: 100%;
+  padding: 0px;
+  margin: 0;
+  
 }
 
 .commentBox{
@@ -269,6 +286,9 @@ p{
 
 #commentInput{
   width: 70%;
+  opacity: 1;
+  color: black;
+  font-weight: bold
 }
 
 h1{
@@ -276,4 +296,13 @@ h1{
 }
 h3{
   font-family: Montserrat, sans-serif;
+}
+
+ #commentContainer{
+  height: 80vh;
+  margin-top: 30px;
+  overflow: scroll;
+ }
+ #commentContainer::-webkit-scrollbar{
+  display: none;
 }
