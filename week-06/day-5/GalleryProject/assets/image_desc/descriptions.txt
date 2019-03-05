@@ -11,3 +11,11 @@ Blossom
 ---
 A beautiful cherry blossom tree in the park..
 ===
+Rusty
+---
+This is a rusty old car parking on the riverside sunset (or is it sunrise?), either way it is quite the sight to look at...
+===
+Lorem Ipsum
+---
+   
+===

@@ -14,13 +14,22 @@ let picDesc = document.getElementById('seleH3');
 let commentOpener = document.getElementById('open_comments');
 let commentSection = document.getElementById('hider');
 let galHider = document.getElementById('absolute');
-
+let loginCheck = document.getElementById('logintoken')
+let auth = document.getElementById('auth')
+//let login = document.getElementById('login')
 let commNumChecker = document.getElementById('commNum');
 let counter = 0;
 let numberOfThumbs = parseInt(PicCount.innerHTML);
 
 let thisIsBinary = 1;
 let commentChecker = commNumChecker.innerHTML;
+
+
+if(loginCheck.innerHTML == 1){
+document.getElementById('login').setAttribute('style', 'display:none')
+auth.setAttribute('style', 'display:block')
+commentOpener.setAttribute('style', 'display:block')
+}
 
 if(commentChecker == 1){
   commentSection.setAttribute('style', '')
