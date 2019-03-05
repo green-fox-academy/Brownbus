@@ -72,7 +72,7 @@ button3.onclick = () => {
 
 let button4 = document.createElement('button')
 button4.setAttribute('id', 'right')
-button4.innerHTML = 'MOVE'
+button4.innerHTML = '>'
 divTag.appendChild(button4)
 button4.onclick = () => {
   let elements = document.getElementsByTagName('li')

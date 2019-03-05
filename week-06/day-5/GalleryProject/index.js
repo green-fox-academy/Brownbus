@@ -8,7 +8,6 @@ const fs = require('fs')
 const app = express();
 const PORT = 3000;
 const path = require('path')
-//let numberedThumbs = require('./assets/galery.js')
 
 app.use(bodyParser.urlencoded({ extended: false })); //handle body requests
 app.use(bodyParser.json()); // let's make JSON work too!
@@ -84,7 +83,6 @@ function commentEngine(txt){
       sepComments += `<div class="commentBox"><p>${arr[i]}</p></div> \n`
     }
   }
-  console.log(sepComments)
   return sepComments;
 }
 
@@ -94,7 +92,7 @@ app.get('/', (req, res) => {
     thumbnail: `<ul></ul>`,
     pictureCount: counter,
     descriptionAndTitle : descSplitter(descDocument),
-    comments: commentEngine(commentTxt), //put comments here
+    comments: commentEngine(commentTxt),
   })
 })
 
@@ -122,7 +120,7 @@ app.post('/upload', multer(multerConfig).single('photo'), function (req, res) {
 //COMMENTS
 app.post('/comment', function(req, res){
   if(req.body.comment.length>0){
-    fs.appendFileSync('./assets/comments/comments.txt',`${Date.now()} commented: \n ${req.body.comment}\n===\n`);
+    fs.appendFileSync('./assets/comments/comments.txt',`<strong>${Date.now()} commented:</strong> <br><br> ${req.body.comment}\n===\n`);
     commentTxt = fs.readFileSync('./assets/comments/comments.txt', 'utf-8');
     console.log(req.body.comment)
     setTimeout(() => {
