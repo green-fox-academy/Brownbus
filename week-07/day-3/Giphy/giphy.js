@@ -9,7 +9,6 @@ function random(min, max) {
 };
 
 
-
  $.get(`http://api.giphy.com/v1/gifs/search?api_key=e7hHJRagOjNfCA97YCchuWOJAw8YQtlw&q=funnyt&limit=${25}&offset=${random(1,112)}`, (apiData) => {
   console.log(apiData)
   for(let i = 0; i < apiData.data.length; i++){
@@ -28,10 +27,16 @@ function random(min, max) {
   }
   });
   
-/*   let http = new XMLHttpRequest()
+ 
+ 
+ //THIS IS THE XML REQUEST WAY
+  /*  const http = new XMLHttpRequest()
   
   http.open('GET',' http://api.giphy.com/v1/gifs/search?api_key=e7hHJRagOjNfCA97YCchuWOJAw8YQtlw&q=bullshit&limit=16')
-  http.send()
   
-  http.onload 
- */
+  http.onload = () => {
+    let something = JSON.parse(http.responseText);
+    console.log(something)
+  }
+  
+  http.send() */
