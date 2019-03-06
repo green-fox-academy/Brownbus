@@ -14,7 +14,6 @@ $.get('http://api.giphy.com/v1/stickers/search?api_key=e7hHJRagOjNfCA97YCchuWOJA
   console.log(apiData)
   for(let i = 0; i < 16; i++){
     let img = document.createElement('img');
-  
     
     img.setAttribute('src', apiData.data[i].images.downsized_still.url)
     img.setAttribute('style', 'width:100px; height:100px')
