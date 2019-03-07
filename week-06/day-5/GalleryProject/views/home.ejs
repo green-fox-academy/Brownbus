@@ -1,64 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="utf-8">
-  <title> Gallery </title>
-  <link rel="stylesheet" href="./assets/style.css">
-
-
-</head>
-
-<body>
-  <div id='absolute'>
-
-    <div id='gallery'>
-      <button id='leftButton'> < </button>
+  <head>
+    <meta charset="utf-8">
+    <title> Gallery </title>
+    <link rel="stylesheet" href="./assets/style.css">
+    
+    
+  </head>
+  
+  <body>
+    <div id='logintoken' style='display:none'><%= LOGIN %></div>
+    <form action="/login" method="post" id ='login'>
+      <input type='password' id='password' name='password' placeholder="password">
+      <input type="submit" value="Log in">
+    </form>
+  
+    <div id='absolute'>
       
-      
-      <div id="selectedImageHT"> 
-        <%- img %>
-        <div id='selectedDescription'>
-          <h1 id='seleH1'></h1>
-          <h3 id='seleH3'></h3>
+      <div id='gallery'>
+        <button id='leftButton'> < </button>
+        
+        
+        <div id="selectedImageHT"> 
+          <%- img %>
+          <div id='selectedDescription'>
+            <h1 id='seleH1'></h1>
+            <h3 id='seleH3'></h3>
+          </div>
         </div>
-      </div>
-      
-      
-      <div id='thumbnails'>
-        <%- thumbnail %>
+        
+        
+        <div id='thumbnails'>
+          <%- thumbnail %>
       </div>
       
       
       <button id='rightButton'> > </button>
     </div>
     
-    
-    
-    
-    <form action="/upload" enctype="multipart/form-data" method="POST" onsubmit='adder(); thumnailLoader()'>
-      <label for="file-upload" class="custom-file-upload">Choose File to Upload</label>
-      <input id='file-upload' type="file" name="photo" />
-      <input type="text" name="title" placeholder='Name your Picture'>
-      <input type="text" name="desc" placeholder='Give it a Description'>
-      <input type="submit" value="Upload Photo" />
-    </form>
-  </div>
-    
-    
-    <div id ='comment_section'>
-      <button id='open_comments'> Click here to view the comments</button>
-      <div id='hider' style='display:none'>
-          <form id='add_comment' action="/comment" method="POST">
-            <input id='commentInput' type="text" name='comment' placeholder='Comment Here'>
-            <input type="submit" value="Send Comment" onsubmit="{commentChecker = 1}"/>
-          </form>
-          <div id = "commentContainer">
-          <%- comments %> 
-          </div>
-        </div>
+    <div id='auth' style='display:none'>
+  
+        <form action="/upload" enctype="multipart/form-data" method="POST" onsubmit='adder(); thumnailLoader()'>
+          <label for="file-upload" class="custom-file-upload">Choose File to Upload</label>
+          <input id='file-upload' type="file" name="photo" />
+          <input type="text" name="title" placeholder='Name your Picture'>
+          <input type="text" name="desc" placeholder='Give it a Description'>
+          <input type="submit" value="Upload Photo" />
+        </form>
       </div>
       
+    </div><!-- auth div -->
+      
+      <div id ='comment_section'>
+        <button id='open_comments' style = 'display:none'> Click here to view the comments</button>
+        <div id='hider' style='display:none'>
+            <form id='add_comment' action="/comment" method="POST">
+              <input id='commentInput' type="text" name='comment' placeholder='Comment Here'>
+              <input type="submit" value="Send Comment" onsubmit="{commentChecker = 1}"/>
+            </form>
+            <div id = "commentContainer">
+              <%- comments %> 
+            </div>
+          </div>
+        </div>
+        
+
       
       <div id='commNum' style='display: none'> <%= commentchecker %> </div>
       <div id='pics'> <%= pictureCount %> </div>

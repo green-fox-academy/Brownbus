@@ -1,5 +1,5 @@
 'use strict';
-
+const adminPw = 'password'
 
 const express = require('express');
 const multer = require('multer'); // file storing middleware
@@ -8,6 +8,8 @@ const fs = require('fs')
 const app = express();
 const PORT = 3000;
 const path = require('path')
+
+let loginToken = 0;
 
 app.use(bodyParser.urlencoded({ extended: false })); //handle body requests
 app.use(bodyParser.json());
@@ -96,6 +98,7 @@ app.get('/', (req, res) => {
     descriptionAndTitle: descSplitter(descDocument),
     comments: commentEngine(commentTxt),
     commentchecker: commentCheck,
+    LOGIN: loginToken,
   })
   commentCheck = 0;
 })
@@ -124,13 +127,22 @@ app.post('/comment', function (req, res) {
   if (req.body.comment.length > 0) {
     fs.appendFileSync('./assets/comments/comments.txt', `<strong>${Date.now()} commented:</strong> <br><br> ${req.body.comment}\n===\n`);
     commentTxt = fs.readFileSync('./assets/comments/comments.txt', 'utf-8');
-    //console.log(req.body.comment)
     commentCheck = 1;
     setTimeout(() => {
       res.redirect('/');
     }, 500);
   }
 })
+
+app.post('/login', (req,res) => {
+if(req.body.password == adminPw){
+  loginToken = 1;
+  res.redirect('/')
+}else{
+  res.redirect('/')
+}
+});
+
 
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);

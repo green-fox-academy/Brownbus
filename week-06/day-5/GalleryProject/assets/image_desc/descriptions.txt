@@ -1,4 +1,4 @@
-Road
+﻿Road
 ---
 A road going throuh one of the most beautiful snowy mountain range. Truly a sight to behold.
 ===
@@ -18,4 +18,20 @@ This is a rusty old car parking on the riverside sunset (or is it sunrise?), eit
 Lorem Ipsum
 ---
    
+===
+thsi is a house
+---
+0éfowignjsűvp
+===
+panda
+---
+panda playing
+===
+Lorem Ipsum
+---
+   
+===
+XP
+---
+This is the winXP background
 ===
