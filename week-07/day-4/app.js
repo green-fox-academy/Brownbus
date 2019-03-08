@@ -27,9 +27,42 @@ conn.query('SELECT * FROM author;', function(err, data) {
   });
 });
 
+
+app.get('/category',(req,res) => {
+  conn.query('SELECT * FROM category;', function(err, data) {
+    if(err){console.log(err)}else{
+      console.log('Data received from DataBase:\n');
+    }
+    res.send(data)
+    });
+  });
+
+
+
+  app.get('/publisher',(req,res) => {
+    conn.query('SELECT * FROM publisher;', function(err, data) {
+      if(err){console.log(err)}else{
+        console.log('Data received from DataBase:\n');
+      }
+      res.send(data)
+      });
+    });
+
+
+
+    app.get('/order',(req,res) => {
+      conn.query('SELECT * FROM order;', function(err, data) {
+        if(err){console.log(err)}else{
+          console.log('Data received from DataBase:\n');
+        }
+        res.send(data)
+        });
+      });
+
+
 conn.connect(function (err) {
   if (err) {
-    console.log('Error connecting to Db');
+    //console.log('Error connecting to Db');
     console.log(err)
     return;
   }

@@ -1,0 +1,146 @@
+header{
+  display: flex;
+  position: sticky;
+  top: 3px;
+  width: 100%;
+  height: 50px;
+  background-image: url(background.jpg);
+}
+
+#logo{
+  margin:5px;
+  margin-left: 25px;
+  width: 35px;
+  height: 35px;
+  border: solid 1px white;
+  border-radius: 100%;
+}
+
+#searchBar{
+  margin: 5px;
+  height: 35px;
+  width: 700px;
+  border: solid rgb(40, 158, 255) 1px;
+  border-radius: 5%
+}
+
+#contentBody{
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  
+}
+
+#create_post{
+  margin-top: 70px;
+  display: flex;
+  flex-direction: column;
+  height: 190px;
+  width: 100wv;
+
+}
+#postBody{
+height: 150px;
+width: 100%;
+color:black;
+font-weight: bold;
+border: solid black 2px;
+border-radius: 3%;
+font-size: 24px;
+font-family:Verdana, sans-serif;
+}
+
+#post_button{
+  height: 40px;
+  background-color: red;
+  border: solid white 2px;
+  color: white;
+  border-radius: 3%;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+#post_button:hover{
+  background-color: white;
+  border: solid black  2px;
+  color: red;
+}
+
+body{
+  height: 3000px;
+  background-color:rgb(217, 224, 240);
+}
+
+.post{
+  margin-top: 90px;
+  display:flex;
+  flex-direction: row;
+  height: 200px;
+  width: 70%;
+  background-color: rgb(255, 255, 255);
+}
+.votes{
+background-color:whitesmoke;
+height: 200px;
+display:flex;
+flex-direction: column;
+align-items: center;
+font-size: 24px;
+}
+
+.up{
+height: 50px;
+width: 50px;
+background-color: black;
+color: white;
+}
+
+.down{
+  height: 50px;
+  width: 50px;
+background-color: black;
+color: white;
+}
+
+.deleteButton{
+  font-size: 40px;
+  font-weight:bolder; 
+  height: 50px;
+  width: 50px;
+background-color: beige;
+color: red;
+}
+.deleteButton:hover{
+
+background-color: red;
+color: beige;
+}
+
+.textInPost{
+display:flex;
+flex-direction: column;
+background-color: white;
+}
+.user{
+  color: blue;
+  font-size: 18px;
+  font-weight: bold;
+
+}
+.postText{
+font-size: 32px;
+}
+
+.post:hover{
+  border: solid 1px black;
+}
+
+.postArea{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+.comments{
+margin-top: 30px;
+font-size: 18px;
+}

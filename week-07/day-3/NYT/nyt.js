@@ -1,17 +1,18 @@
 'use strict';
 let apiKey ='mUBolKvUWJtfMvmUCWNtj2558xXhfWtX'
 
-let body = document.querySelector('body')
+/* 
 let http = new XMLHttpRequest()
 http.open('GET',`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=moon&api-key=${apiKey}`)
 http.send() 
 
+*/
+
+let body = document.querySelector('body')
 
 
 
-
-
-/* $.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=moon&api-key=${apiKey}`, (data) => {
+ $.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=moon&api-key=${apiKey}`, (data) => {
   console.log(data)
  for(let i = 0; i < data.response.docs.length; i++){
   let breakLine = document.createElement('br');
@@ -35,7 +36,7 @@ http.send()
   body.appendChild(breakLine)
   
 };
-}); */
+}); 
 
 
 
