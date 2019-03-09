@@ -61,6 +61,10 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname + '/index.html'));
 });
 
+app.post('/log_in', function (req, res) {
+  res.sendFile(path.join(__dirname + '/login.html'));
+});
+
 
 function vote(parameter, id) {
   let like = `UPDATE likes SET number_of_likes = number_of_likes + ${parameter} WHERE post_id=${id}`
@@ -81,7 +85,7 @@ app.post('/post_id/:id/:action', (req, res) => {
 
 app.post('/search', (req, res) => {
   console.log(req.body.search)
-  conn.query(`SELECT thread_name FROM post WHERE thread_name LIKE '%${req.body.search}%'`,(err,data)=>{
+  conn.query(`SELECT * FROM post WHERE thread_name LIKE '%${req.body.search}%'`,(err,data)=>{
     if(err){
 console.log(err)
 console.error

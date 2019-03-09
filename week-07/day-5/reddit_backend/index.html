@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Reddit</title>
+  <title>GreenDit</title>
   <link rel="stylesheet" type="text/css" media="screen" href="/assets/main.css">
   <link rel="shortcut icon" href="/assets/logo.png">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -12,11 +12,39 @@
 <body>
   <header>
     <img id='logo' src="/assets/logo.png">
+
+    <!--dropdown-->
+
+  <div id="sort_by">
+    SORT BY
+    <div id="links">
+      <a href='#'>FRESH</a>
+      <a href='#'>TRENDING</a>
+      <a href='#'>POPULAR</a>
+    </div>
+  </div>
+    <!--dropdown-->
+
+
+
     <form action="/search" method="post">
-      
-      <input type="text" name='search' placeholder="Search Reddt" id=searchBar>
+    <input type="text" name='search' placeholder="Search GreenDit" id=searchBar>
     </form>
+  
+  
+  
+  <form  action="/log_in" id=log_in method="POST">
+  <input  type="submit" id='logInButton' value="LOG IN">
+  </form>
+  
+  
+<form id="sign_up" action="/sign_up" method="post">
+<input  type="submit" id='signUpButton' value="SIGN UP">
+  </form>
+  
+  
   </header>
+
   
   
   <div id='contentBody'>  <!-- the body display div--> 
@@ -52,7 +80,7 @@
         
   
  
-  
+
 
 
 <script src="/assets/index.js"></script>
