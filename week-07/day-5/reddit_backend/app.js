@@ -22,23 +22,27 @@ app.post('/post', (req, res) => {
   
   let postedData = req.body.post_text;
   let threadName = req.body.thread_name;
-  
 
-  let sqlSYNT = 'INSERT INTO `post` (poster_name, post_text, thread_name) VALUES ("anonymous", "' + postedData + '", "'+ threadName +'")';
-  let sqlID = 'INSERT INTO `likes` (number_of_likes) VALUES ("0");'
   
-  conn.query(sqlID, (err) => {
-    if (err) {
-      console.log(err);
-    };
-  });
+  
+  if(postedData.length > 2 && threadName.length > 2){
 
-  conn.query(sqlSYNT, (err) => {
-    if (err) {
-      console.log(err)
-    };
-  }),
+    let sqlSYNT = 'INSERT INTO `post` (poster_name, post_text, thread_name) VALUES ("anonymous", "' + postedData + '", "'+ threadName +'")';
+    let sqlID = 'INSERT INTO `likes` (number_of_likes) VALUES ("0");'
+    
+    conn.query(sqlID, (err) => {
+      if (err) {
+        console.log(err);
+      };
+    });
+    
+    conn.query(sqlSYNT, (err) => {
+      if (err) {
+        console.log(err)
+      };
+    }),
     res.redirect('/')
+  }else{res.redirect('/')}
 });
 
 
