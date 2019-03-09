@@ -18,10 +18,15 @@ let conn = mysql.createConnection({
 });
 
 app.post('/post', (req, res) => {
+  console.log(req.body)
+  
   let postedData = req.body.post_text;
+  let threadName = req.body.thread_name;
+  
 
-  let sqlSYNT = 'INSERT INTO `post` (poster_name, post_text) VALUES ("anonymous", "' + postedData + '")';
+  let sqlSYNT = 'INSERT INTO `post` (poster_name, post_text, thread_name) VALUES ("anonymous", "' + postedData + '", "'+ threadName +'")';
   let sqlID = 'INSERT INTO `likes` (number_of_likes) VALUES ("0");'
+  
   conn.query(sqlID, (err) => {
     if (err) {
       console.log(err);
@@ -72,7 +77,14 @@ app.post('/post_id/:id/:action', (req, res) => {
 
 app.post('/search', (req, res) => {
   console.log(req.body.search)
-  res.redirect('/')
+  conn.query(`SELECT thread_name FROM post WHERE thread_name LIKE '%${req.body.search}%'`,(err,data)=>{
+    if(err){
+console.log(err)
+console.error
+    };
+    res.send(data)
+  });
+  //res.redirect('/')
 
 })
 

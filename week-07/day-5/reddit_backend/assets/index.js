@@ -52,19 +52,32 @@ $.get('/api/main', (data) => {
 
     let textInPost = document.createElement('div');
     textInPost.setAttribute('class', 'textInPost');
-    let user = document.createElement('a');
+
+    let threadName = document.createElement('p');
+    threadName.setAttribute('class', 'threadName');
+    threadName.innerHTML = `<a href=#>/r/${data[i].thread_name}</a>`;
+    
+    
+    let user = document.createElement('p');
     user.setAttribute('class', 'user');
-    user.innerHTML = data[i].poster_name;
+    user.innerHTML = `  uploaded by ${data[i].poster_name} user at ${data[i].post_date}`;
+    
     let postText = document.createElement('p');
     postText.setAttribute('class', 'postText')
     postText.innerHTML = data[i].post_text;
+    
     let comments = document.createElement('a');
     comments.setAttribute('class', 'comments')
     comments.setAttribute('href', '/' + data[i].post_id + '/comments')
     comments.innerHTML = 'Comments';
-    textInPost.appendChild(user);
+    
+
+    threadName.appendChild(user)
+    textInPost.appendChild(threadName)
+    //textInPost.appendChild(user);
     textInPost.appendChild(postText);
     textInPost.appendChild(comments);
+    
     post.appendChild(textInPost)
     postArea[0].appendChild(post);
   }

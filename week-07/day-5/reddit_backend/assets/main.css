@@ -80,7 +80,7 @@ body{
   background-color: rgb(255, 255, 255);
 }
 .votes{
-background-color:whitesmoke;
+background-color:rgb(235, 230, 230);
 height: 200px;
 display:flex;
 flex-direction: column;
@@ -89,9 +89,9 @@ font-size: 24px;
 }
 
 .up{
-height: 50px;
-width: 50px;
-background-size: 45px;
+height: 30px;
+width: 30px;
+background-size: 25px;
 background-image: url(up.png);
 /* background-color: black; */
 /* color: white; */
@@ -101,22 +101,22 @@ background-image: url(up.png);
 }
 
 .down{
-  height: 50px;
-  width: 50px;
-  background-size: 45px;
+  height: 30px;
+  width: 30px;
+  background-size: 25px;
   background-image: url(down.png);
   /* background-color: black;
   color: white; */
 }
 .down:hover{
-border: solid 2px red;
+border: solid 2px blue;
 }
 
 .deleteButton{
-  font-size: 40px;
+  font-size: 16px;
   font-weight:bolder; 
-  height: 50px;
-  width: 50px;
+  height: 30px;
+  width: 30px;
 background-color: beige;
 color: red;
 }
@@ -131,12 +131,22 @@ display:flex;
 flex-direction: column;
 background-color: white;
 }
-.user{
+.threadName{
+  display: flex;
+  flex-direction:row;
   color: blue;
   font-size: 18px;
   font-weight: bold;
-
 }
+
+.user{
+  margin-top: 5px;
+  margin-left: 5px;
+  color: grey;
+  font-size: 14px;
+  font-style: italic;
+}
+
 .postText{
 font-size: 32px;
 }
@@ -168,7 +178,6 @@ flex-direction: column;
 margin-right: 50px;
 width: 450px;
 height: auto;
-background-color: white;
 position: fixed;
 right: 20px;
 }
@@ -176,9 +185,12 @@ right: 20px;
 margin: 5px;
 width:100%;
 height: 80px;
-background-color: green;
+background-color:rgb(196, 184, 184);
+border: solid 1px grey;
+
 }
 
 .sidecCont:hover{
- background-color:red;
+  background-color:rgb(163, 156, 156);
+  border: solid 2px grey;
 }
