@@ -10,7 +10,6 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-
 let conn = mysql.createConnection({
   host: 'localhost',
   user: 'brownbus',
@@ -29,15 +28,12 @@ app.post('/post', (req, res) => {
     };
   });
 
-
   conn.query(sqlSYNT, (err) => {
     if (err) {
       console.log(err)
     };
   }),
-
     res.redirect('/')
-
 });
 
 
@@ -50,14 +46,11 @@ app.get('/api/main', (req, res) => {
   });
 });
 
-
 app.use('/assets', express.static('assets'))
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname + '/index.html'));
 });
-
-
 
 
 function vote(parameter, id) {
@@ -71,14 +64,20 @@ function vote(parameter, id) {
 
 app.post('/post_id/:id/:action', (req, res) => {
   if (req.params.action == 'downvote_post') {
-    vote(-1, req.params.id)
+    vote(-1, req.params.id);
   } else if (req.params.action == 'upvote_post') {
-    vote(1, req.params.id)
+    vote(1, req.params.id);
   }
 });
 
+app.post('/search', (req, res) => {
+  console.log(req.body.search)
+  res.redirect('/')
+
+})
+
 app.post('/:id/delete_post', (req, res) => {
- let deletePost = `DELETE FROM post WHERE post_id=${req.params.id}`
+  let deletePost = `DELETE FROM post WHERE post_id=${req.params.id}`
   conn.query(deletePost, (err) => {
     if (err) {
       console.log(err);

@@ -4,7 +4,7 @@ let postArea = document.getElementsByClassName('postArea');
 
 //console.log(postArea)
 $.get('/api/main', (data) => {
-  for (let i = data.length-1; i > 0; i--) {
+  for (let i = data.length - 1; i > 0; i--) {
     let post = document.createElement('div')
     post.setAttribute('class', 'post');
     let votes = document.createElement('div')
@@ -12,36 +12,33 @@ $.get('/api/main', (data) => {
 
     let up = document.createElement('button');
     up.setAttribute('class', 'up');
-    up.innerHTML = 'up'
+    //up.innerHTML = 'up'
     up.onclick = () => {
       likeNum.innerHTML = parseInt(likeNum.innerHTML) + 1
       $.post(`/post_id/${data[i].post_id}/upvote_post`)
-      
     }
-    
+
     let likeNum = document.createElement('span');
     likeNum.innerHTML = data[i].number_of_likes;
     likeNum.setAttribute('class', 'likeNum');
-    
-    
+
+
     let down = document.createElement('button');
     down.setAttribute('class', 'down');
-    down.innerHTML = 'down';
+    //down.innerHTML = 'down';
     down.onclick = () => {
       if (parseInt(likeNum.innerHTML) - 1 >= 0) {
         likeNum.innerHTML = parseInt(likeNum.innerHTML) - 1
         $.post(`/post_id/${data[i].post_id}/downvote_post`)
-        
+
       };
     };
-    
+
     let deleteButton = document.createElement('button');
     deleteButton.setAttribute('class', 'deleteButton')
     deleteButton.innerHTML = 'X'
-    deleteButton.onclick = ()=>{
-      console.log(post)
+    deleteButton.onclick = () => {
       let deletable = document.getElementsByClassName('postArea')
-      console.log(deletable[0])
       deletable[0].removeChild(post)
       $.post(`/${data[i].post_id}/delete_post`)
     }

@@ -13,25 +13,45 @@
   <header>
     <img id='logo' src="/assets/logo.png">
     <form action="/search" method="post">
+      
       <input type="text" name='search' placeholder="Search Reddt" id=searchBar>
     </form>
   </header>
-
-<div id='contentBody'>  <!-- the body display div--> 
-
-  <form action="/post" method="post" id="create_post">
-    <textarea name="post_text" id="postBody" cols="30" rows="10"></textarea>
-    <input type="Submit" value="Post" id='post_button'>
-  </form>
-
-
-  <!--- this is where the posts start-->
-<div class="postArea">
-
-
-</div>
-
-</div> <!-- the body display div--> 
+  
+  
+  <div id='contentBody'>  <!-- the body display div--> 
+    
+    <form action="/post" method="post" id="create_post">
+      <textarea name="post_text" id="postBody" cols="30" rows="10"></textarea>
+      <input type="Submit" value="Post"  id='post_button'>
+    </form>
+    
+    <div class="mainContent">
+    
+    
+    <div class="postArea"> <!--- this is where the posts start-->
+    </div> <!--post end-->
+    
+    
+    <div class="sideBar">
+      <div class="sidecCont"></div>
+      <div class="sidecCont"></div>
+      <div class="sidecCont"></div>
+      <div class="sidecCont"></div>
+      <div class="sidecCont"></div>
+      <div class="sidecCont"></div>
+      <div class="sidecCont"></div>
+      <div class="sidecCont"></div>
+      <div class="sidecCont"></div>
+      <div class="sidecCont"></div>
+    </div> <!--Sidebar End-->
+          
+    </div> <!-- Main content --> 
+     </div> <!-- the body display div--> 
+        
+  
+ 
+  
 
 
 <script src="/assets/index.js"></script>
