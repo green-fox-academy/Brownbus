@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title> media query</title>
+<style>
+div{
+  width: 33%;
+  height: 33vh;
+}
+body{
+  display:flex;
+}
+.purple{
+    background-color: purple;
+  }
+  .yellow{
+    background-color: yellow;
+  }
+  .green{
+    background-color: green;
+  }
+
+@media (max-width:600px){
+  body{
+    display: flex;
+    flex-direction: column;
+  }
+  div{
+    width: 100%;
+  }
+}
+
+</style>
+</head>
+<body>
+  <div class="green"></div>
+  <div class="yellow"></div>
+  <div class="purple"></div>
+</body>
+</html>
