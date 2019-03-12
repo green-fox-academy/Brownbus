@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Labeled buttons</title>
+    <script src="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    
+    <style>
+ *{
+    cursor: url(k.jpg), auto;
+}
+
+
+      body{
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: black
+      }
+
+      #delete{
+        font-size: 50px;
+position: absolute;
+top: 50vh;
+left: 50vw;
+color: red;
+      }
+
+  .label{
+    display: none;
+    flex-direction: column;
+  }
+
+
+
+  #delete:hover ~ .label{
+    display: flex;
+    position:absolute;
+    top: 53vh;
+    left: 53vw;
+
+  }
+
+  .conf{
+    margin: 1px;
+    padding:0;
+    width: 500px;
+    height: 60px;
+  background: black;
+    display:flex;
+    align-items: center;
+  }
+  #confirm{
+    font-size: 50px;
+    margin-left: 32px;
+    color:red;
+  }
+  #sure{
+    font-size: 50px;  
+    margin-left: 32px;
+    color:green;
+  }
+
+  p{
+    margin: 0px;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: white;
+    font-size: 24px;
+  }
+
+  </style>
+</head>
+<body>
+    <i id='delete' class="far fa-trash-alt"></i>
+  
+  
+<div class="label">
+    
+    <div class="conf">
+      <i id='confirm' class="far fa-trash-alt"></i>
+      <p>Delete</p>
+    </div>
+   
+    <div class="conf">
+      <i id='sure' class="far fa-check-circle"></i>
+      <p>Sure!</p>
+    </div>
+  </div>
+</body>
+</html>
