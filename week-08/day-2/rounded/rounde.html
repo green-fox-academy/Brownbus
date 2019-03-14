@@ -7,6 +7,7 @@
     body{
       height: 100vh;
       display:flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
     }
@@ -17,15 +18,20 @@
   border-radius: 10%;
   margin: 30px;
   opacity: 0.9;
+  box-shadow:rgb(212, 212, 212) 5px 5px;
   }
 
   .btn:hover{
  opacity: 0.8;
+ cursor: url(p.png),auto;
   }
   .btm:active{
 opacity: 1;
   }
  
+ h2:hover{
+cursor: url(l.gif),auto;
+ }
   .green{
     background-color: green;
   }
@@ -39,11 +45,18 @@ opacity: 1;
   cursor: url(k.jpg), auto;
   }
 
+  h1:hover{
+    cursor: url(t.jpg), auto;
+  }
+
+
   </style>
 </head>
 <body>
+  <h1>BUTTONS</h1>
   <button class="btn blue">blue</button>
   <button class="btn green">green</button>
   <button class="btn red">red</button>
+  <h2>hello</h2>
 </body>
 </html>

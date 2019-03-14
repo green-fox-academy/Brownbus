@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>GreenDit</title>
+  <link rel="stylesheet" type="text/css" media="screen" href="/assets/main.css">
+  <link rel="shortcut icon" href="/assets/logo.png">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <header>
+    <img id='logo' src="/assets/logo.png">
+
+    <!--dropdown-->
+
+    <div id="sort_by">
+      SORT BY
+      <div id="links">
+        <a href='/'>FRESH</a>
+        <a href='trending'>TRENDING</a>
+        <a href='popular'>POPULAR</a>
+      </div>
+    </div>
+    <!--dropdown-->
+
+
+    <img  id='magnifier' src="/assets/search_icon.png">
+    <form action="/api/search" method="POST" id='searchSubmit'>
+      <input type="text" name='search' placeholder="Search GreenDit" id=searchBar>
+    </form>
+
+<!--  -->
+
+    <!-- <form action="/log_in" id=log_in method="POST">
+      <input type="submit" id='logInButton' value="LOG IN">
+    </form>
+
+
+    <form id="sign_up" action="/register" method="post">
+      <input type="submit" id='signUpButton' value="SIGN UP">
+    </form> -->
+
+
+  </header>
+
+
+
+  <div id='contentBody'>
+    <!-- the body display div-->
+
+    <form action="/post" method="post" id="create_post">
+      <input type="text" name='thread_name' id="threadNamer" placeholder='Start a discussion about..:'>
+      <textarea name="post_text" id="postBody" cols="30" rows="10"></textarea>
+
+      <input type="Submit" value="Post" id='post_button'>
+    </form>
+
+    <div class="mainContent">
+
+
+      <div class="postArea">
+        <!--- this is where the posts start-->
+      </div>
+      <!--post end-->
+
+
+      <div class="sideBar">
+        <div class="sidecCont"></div>
+        <div class="sidecCont"></div>
+        <div class="sidecCont"></div>
+        <div class="sidecCont"></div>
+        <div class="sidecCont"></div>
+        <div class="sidecCont"></div>
+        <div class="sidecCont"></div>
+        <div class="sidecCont"></div>
+        <div class="sidecCont"></div>
+        <div class="sidecCont"></div>
+      </div>
+      <!--Sidebar End-->
+
+    </div> <!-- Main content -->
+  </div> <!-- the body display div-->
+
+
+
+
+
+
+  <script src="/assets/index.js"></script>
+</body>
+
+</html>
