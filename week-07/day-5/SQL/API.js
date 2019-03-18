@@ -24,3 +24,4 @@ conn.query('SELECT * FROM posts;', function(err, data) {
 
 app.listen(PORT, ()=>{
   console.log(`Listening to ${PORT}`)
+});

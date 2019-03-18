@@ -15,75 +15,79 @@
 
     <!--dropdown-->
 
-  <div id="sort_by">
-    SORT BY
-    <div id="links">
-      <a href='#'>FRESH</a>
-      <a href='#'>TRENDING</a>
-      <a href='#'>POPULAR</a>
+    <div id="sort_by">
+      SORT BY
+      <div id="links">
+        <a href='/'>FRESH</a>
+        <a href='trending'>TRENDING</a>
+        <a href='popular'>POPULAR</a>
+      </div>
     </div>
-  </div>
     <!--dropdown-->
 
 
-
-    <form action="/search" method="post">
-    <input type="text" name='search' placeholder="Search GreenDit" id=searchBar>
+    <img  id='magnifier' src="/assets/search_icon.png">
+    <form action="/api/search" method="POST" id='searchSubmit'>
+      <input type="text" name='search' placeholder="Search GreenDit" id=searchBar>
     </form>
-  
-  
-  
-  <form  action="/log_in" id=log_in method="POST">
-  <input  type="submit" id='logInButton' value="LOG IN">
-  </form>
-  
-  
-<form id="sign_up" action="/sign_up" method="post">
-<input  type="submit" id='signUpButton' value="SIGN UP">
-  </form>
-  
-  
+
+<!--  -->
+
+    <form action="/log_in" id=log_in method="POST">
+      <input type="submit" id='logInButton' value="LOG IN">
+    </form>
+
+
+    <form id="sign_up" action="/sign_up" method="post">
+      <input type="submit" id='signUpButton' value="SIGN UP">
+    </form>
+
+
   </header>
 
-  
-  
-  <div id='contentBody'>  <!-- the body display div--> 
-    
+
+
+  <div id='contentBody'>
+    <!-- the body display div-->
+
     <form action="/post" method="post" id="create_post">
-      <input type="text" name='thread_name' id="threadNamer" placeholder='Start a discussion about..:' >
+      <input type="text" name='thread_name' id="threadNamer" placeholder='Start a discussion about..:'>
       <textarea name="post_text" id="postBody" cols="30" rows="10"></textarea>
-      <input type="Submit" value="Post"  id='post_button'>
+      <input type="Submit" value="Post" id='post_button'>
     </form>
-    
+
     <div class="mainContent">
-    
-    
-    <div class="postArea"> <!--- this is where the posts start-->
-    </div> <!--post end-->
-    
-    
-    <div class="sideBar">
-      <div class="sidecCont"></div>
-      <div class="sidecCont"></div>
-      <div class="sidecCont"></div>
-      <div class="sidecCont"></div>
-      <div class="sidecCont"></div>
-      <div class="sidecCont"></div>
-      <div class="sidecCont"></div>
-      <div class="sidecCont"></div>
-      <div class="sidecCont"></div>
-      <div class="sidecCont"></div>
-    </div> <!--Sidebar End-->
-          
-    </div> <!-- Main content --> 
-     </div> <!-- the body display div--> 
-        
-  
- 
+
+
+      <div class="postArea">
+        <!--- this is where the posts start-->
+      </div>
+      <!--post end-->
+
+
+      <div class="sideBar">
+        <div class="sidecCont"></div>
+        <div class="sidecCont"></div>
+        <div class="sidecCont"></div>
+        <div class="sidecCont"></div>
+        <div class="sidecCont"></div>
+        <div class="sidecCont"></div>
+        <div class="sidecCont"></div>
+        <div class="sidecCont"></div>
+        <div class="sidecCont"></div>
+        <div class="sidecCont"></div>
+      </div>
+      <!--Sidebar End-->
+
+    </div> <!-- Main content -->
+  </div> <!-- the body display div-->
 
 
 
-<script src="/assets/index.js"></script>
+
+
+
+  <script src="/assets/index.js"></script>
 </body>
 
 </html>
