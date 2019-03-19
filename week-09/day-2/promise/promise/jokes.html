@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>jokes</title>
+<body>
+  <div class="jokes">
+    <p style='color:brown; font-size:32px;' class="ptag"></p>
+    <button id=jokebtn>Gimme A Joke</button>
+  </div>
+  <script>
+const btn = document.querySelector('button')
+let lol = function(){
+  const URL = 'http://api.icndb.com/jokes/random';
+  fetch(URL)
+  .then(response => response.json())
+  .then(myJson => document.querySelector('p').innerHTML = myJson.value.joke);
+}
+btn.addEventListener('click', lol)
+  </script>
+</body>
+</html>
