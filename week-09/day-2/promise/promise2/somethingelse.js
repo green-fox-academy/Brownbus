@@ -14,7 +14,6 @@ let promise = new Promise(function (fulfill, reject) {
 function onReject(myRrror) {
   return myRrror
 }
-
 promise.then(string => string.json(), errorMsg => console.log(errorMsg.message)) */
 
 
@@ -51,8 +50,29 @@ let promise = new Promise(function (fulfill, reject) {
 })
 promise = Promise.resolve('I DID NOT FIRE')
 promise = Promise.reject(new Error('This is an error'))
-.then(null, rejected).catch(null)
+.then(null).catch(rejected)
 
 function rejected(error) {
   console.log(error.message)
 } */
+
+  'use strict';
+
+function first(msq){
+  let promise = new Promise(function (fulfill, reject) {
+    fulfill(msq)
+   }).then(second).then(onFullfilled).then(console.log)
+}
+
+function second(msq){
+  return new Promise(function (fulfill, reject) {
+    fulfill(msq)
+   })
+}
+
+function onFullfilled(promise){
+  return promise
+}
+
+first('ésdiuofs') 
+
