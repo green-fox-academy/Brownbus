@@ -18,25 +18,25 @@ function onReject(myRrror) {
 promise.then(string => string.json(), errorMsg => console.log(errorMsg.message)) */
 
 
- /*
-     * This code is bad, but nonetheless common and has the nasty result of
-     * calling the supplied callback more than once (possibly destroying the
-     * earth?). It is conventional to return the first invocation of callback
-     * but it’s easy to overlook!
-     */
+/*
+    * This code is bad, but nonetheless common and has the nasty result of
+    * calling the supplied callback more than once (possibly destroying the
+    * earth?). It is conventional to return the first invocation of callback
+    * but it’s easy to overlook!
+    */
 
 
- /*    'use strict';
+/*    'use strict';
 
-    let promise = new Promise(function (fulfill, reject) {
-     fulfill('I FIRED')
-     reject(new Error('I DID NOT FIRE'))
-    });
-    
-    function onRejected(error){
-      console.log(error.message)
-    }
-    promise.then(console.log, onRejected) */
+   let promise = new Promise(function (fulfill, reject) {
+    fulfill('I FIRED')
+    reject(new Error('I DID NOT FIRE'))
+   });
+   
+   function onRejected(error){
+     console.log(error.message)
+   }
+   promise.then(console.log, onRejected) */
 
 /*     'use strict';
 
@@ -45,9 +45,14 @@ promise.then(string => string.json(), errorMsg => console.log(errorMsg.message))
     }).then(console.log, null)
     console.log('MAIN PROGRAM') */
 
-    'use strict';
+/* 'use strict';
 
-    let promise = new Promise(function (fulfill, reject) {
-     fulfill('I FIRED')
-     reject(new Error('I DID NOT FIRE'))
-    });
+let promise = new Promise(function (fulfill, reject) {
+})
+promise = Promise.resolve('I DID NOT FIRE')
+promise = Promise.reject(new Error('This is an error'))
+.then(null, rejected).catch(null)
+
+function rejected(error) {
+  console.log(error.message)
+} */
