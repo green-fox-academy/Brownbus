@@ -38,6 +38,13 @@ promise.then(string => string.json(), errorMsg => console.log(errorMsg.message))
     }
     promise.then(console.log, onRejected) */
 
+/*     'use strict';
+
+    let promise = new Promise(function (fulfill, reject) {
+     fulfill('PROMISE VALUE')
+    }).then(console.log, null)
+    console.log('MAIN PROGRAM') */
+
     'use strict';
 
     let promise = new Promise(function (fulfill, reject) {
