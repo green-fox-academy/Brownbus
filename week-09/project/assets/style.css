@@ -64,5 +64,4 @@ color: orangered;
 .answer:hover{
 background: transparent;
 color: white;
-cursor: url(cursor.png), auto;
 }

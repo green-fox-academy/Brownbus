@@ -14,6 +14,9 @@ let conn = mysql.createConnection({
   database: 'quizDB'
 });
 
+
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/assets', express.static('assets'));
@@ -61,6 +64,8 @@ app.get('/api/game', (req, res) => {
 
 app.post('/api/questions', (req, res) => {
   //adding a new question
+  console.log(req.body)
+  console.log('heyheyhey')
   let question = req.body.question;
   let answerOne = req.body.answer_one;
   let answerTwo = req.body.answer_two;
@@ -88,7 +93,7 @@ app.post('/api/questions', (req, res) => {
     conn.query(insertQuery, (err) => {
       if (err) {
         console.log(err)
-        res.status(500).send(err.message)
+        res.status(500).send(JSON.stringify({msg:err.message}))
       } else {
         res.send(JSON.stringify({ msg: 'Question added' }))
       }

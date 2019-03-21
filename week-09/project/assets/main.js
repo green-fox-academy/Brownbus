@@ -85,14 +85,4 @@ fetch('/api/game')
     .then(data => data.json())
     .then(questioner)
 }
-
-
-    function answerChecker() {
-      if (this.innerHTML === data[i].correct_answer) {
-        alert('Success')
-      } else {
-        alert('fuck off')
-      }
-    }
-
     fetcher()
