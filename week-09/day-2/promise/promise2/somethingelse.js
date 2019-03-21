@@ -23,19 +23,22 @@ promise.then(string => string.json(), errorMsg => console.log(errorMsg.message))
     * earth?). It is conventional to return the first invocation of callback
     * but it’s easy to overlook!
     */
+/* 
 
-
-/*    'use strict';
+    'use strict';
 
    let promise = new Promise(function (fulfill, reject) {
-    fulfill('I FIRED')
-    reject(new Error('I DID NOT FIRE'))
+    
+    setTimeout(() => {
+      fulfill('I FIRED')
+      reject(new Error('I DID NOT FIRE'))
+    }, 500);
    });
    
    function onRejected(error){
      console.log(error.message)
    }
-   promise.then(console.log, onRejected) */
+   promise.then(console.log, onRejected)  */
 
 /*     'use strict';
 
@@ -56,9 +59,9 @@ function rejected(error) {
   console.log(error.message)
 } */
 
-  'use strict';
+  //'use strict';
 
-function first(msq){
+/* function first(msq){
   let promise = new Promise(function (fulfill, reject) {
     fulfill(msq)
    }).then(second).then(onFullfilled).then(console.log)
@@ -75,4 +78,4 @@ function onFullfilled(promise){
 }
 
 first('ésdiuofs') 
-
+ */
