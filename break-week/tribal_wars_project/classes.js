@@ -178,7 +178,7 @@ class Troops {
     }
     let allTroops = [archer, lancer, swordsman, spy, calvary, ram, knight, mercenary, mage, catapult]
     for (let j = 0; j < allTroops.length; j++) {
-    
+
       let typeOfSoldier = allTroops[j][Object.keys(allTroops[j])[1]];
       let attackValueOfSoldier = allTroops[j][Object.keys(allTroops[j])[8]];
 
@@ -203,9 +203,9 @@ class Troops {
 
 
 class Village {
-  constructor(name, pos, points, troops, bonuses = 0) {
+  constructor(name, pos, points, troops, bonuses = 1) {
     this.name = name;
-    this.defense = pos;
+    this.position = pos;
     this.points = points;
     this.troops = troops;
     this.bonuses = bonuses;
@@ -219,19 +219,27 @@ class Village {
   stats() {
     return {
       name: this.name,
-      poinst: this.points,
+      points: this.points,
       position: this.position,
       bonuses: this.bonuses,
-      attack_power: this.troops.fullPower,
-      defense: this.troops.fullDefense,
+      attack_power: this.troops.fullAttackPower(),
+      defense: this.troops.fullDefense(),
+    }
+  };
+  train( villageArmyName, troop, quantity) {
+    for (let i = 0; i < quantity; i++) {
+      setTimeout(() => {
+        villageArmyName[troop] += 1
+      }, 5000*i);
     }
   }
 }
 
-let someTroops = new Troops(1, 7, 7, 4, 4, 6, 5, 2, 3, 1)
-let newVillage = new Village('Budapest', [303, 320], 2156, someTroops)
+let budapestArmy = new Troops(1, 7, 7, 4, 4, 6, 5, 2, 3, 1)
+let budapest = new Village('Budapest', [303, 320], 2156, budapestArmy)
 
-//console.log(newVillage.stats)
-console.log(someTroops.fullAttackPower(),' vs ',someTroops.fullDefense())
+console.log(budapestArmy.lancerNum)
+budapest.train(budapestArmy, "lancerNum", 3)
+console.log(budapestArmy.lancerNum)
 
 
