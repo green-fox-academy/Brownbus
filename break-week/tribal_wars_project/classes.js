@@ -1,6 +1,127 @@
 'use strict';
 
 
+let archer = {
+  name: 'archer',
+  type: 'distanceType',
+  defAgainstCalvary: 5,
+  defAgainstDistance: 1,
+  defAgainstInfantry: 7,
+  defAgainstSpy: 0,
+  defAgainstMage: 2,
+  defAgainstSiegeWeapons: 1,
+  attackPower: 2
+}
+
+let lancer = {
+  name: 'lancer',
+  type: 'Infantry',
+  defAgainstCalvary: 4,
+  defAgainstDistance: 1,
+  defAgainstInfantry: 5,
+  defAgainstSpy: 0,
+  defAgainstMage: 1,
+  defAgainstSiegeWeapons: 3,
+  attackPower: 1
+}
+
+let swordsman = {
+  name: 'swordsman',
+  type: 'Infantry',
+  defAgainstCalvary: 1,
+  defAgainstDistance: 1,
+  defAgainstInfantry: 7,
+  defAgainstSpy: 0,
+  defAgainstMage: 1,
+  defAgainstSiegeWeapons: 3,
+  attackPower: 2
+}
+
+let spy = {
+  name: 'spy',
+  type: 'Spy',
+  defAgainstCalvary: 0,
+  defAgainstDistance: 1,
+  defAgainstInfantry: 1,
+  defAgainstSpy: 2,
+  defAgainstMage: 0,
+  defAgainstSiegeWeapons: 2,
+  attackPower: 0
+}
+
+let calvary = {
+  name: 'calvary',
+  type: 'Calvary',
+  defAgainstCalvary: 3,
+  defAgainstDistance: 1,
+  defAgainstInfantry: 1,
+  defAgainstSpy: 0,
+  defAgainstMage: 1,
+  defAgainstSiegeWeapons: 1,
+  attackPower: 3
+}
+
+let ram = {
+  name: 'ram',
+  type: 'SiegeWeapon',
+  defAgainstCalvary: 1,
+  defAgainstDistance: 1,
+  defAgainstInfantry: 0,
+  defAgainstSpy: 0,
+  defAgainstMage: 0,
+  defAgainstSiegeWeapons: 0,
+  attackPower: 2
+}
+
+let knight = {
+  name: 'knight',
+  type: 'Calvary',
+  defAgainstCalvary: 3,
+  defAgainstDistance: 5,
+  defAgainstInfantry: 4,
+  defAgainstSpy: 0,
+  defAgainstMage: 4,
+  defAgainstSiegeWeapons: 4,
+  attackPower: 3
+}
+
+let mercenary = {
+  name: 'mercenary',
+  type: 'Infantry',
+  defAgainstCalvary: 2,
+  defAgainstDistance: 1,
+  defAgainstInfantry: 2,
+  defAgainstSpy: 1,
+  defAgainstMage: 2,
+  defAgainstSiegeWeapons: 2,
+  attackPower: 2
+}
+
+let mage = {
+  name: 'mage',
+  type: 'Mage',
+  defAgainstCalvary: 3,
+  defAgainstDistance: 1,
+  defAgainstInfantry: 3,
+  defAgainstSpy: 0,
+  defAgainstMage: 1,
+  defAgainstSiegeWeapons: 4,
+  attackPower: 3
+}
+
+let catapult = {
+  name: 'catapult',
+  type: 'SiegeWeapon',
+  defAgainstCalvary: 4,
+  defAgainstDistance: 1,
+  defAgainstInfantry: 4,
+  defAgainstSpy: 0,
+  defAgainstMage: 2,
+  defAgainstSiegeWeapons: 5,
+  attackPower: 4
+}
+
+
 class Troops {
   constructor(
     archerNum = 0,
@@ -26,119 +147,11 @@ class Troops {
     this.catapultNum = catapultNum;
   }
   fullDefense() {
-    let archer = {
-      name: 'archer',
-      type: 'distanceType',
-      defAgainstCalvary: 5,
-      defAgainstInfantry: 7,
-      defAgainstSpy: 0,
-      defAgainstMage: 2,
-      defAgainstSiegeWeapons: 1,
-      attackPower: 2
-    }
-    
-    let lancer = {
-      name: 'lancer',
-      type: 'Infantry',
-      defAgainstCalvary: 4,
-      defAgainstInfantry: 5,
-      defAgainstSpy: 0,
-      defAgainstMage: 1,
-      defAgainstSiegeWeapons: 3,
-      attackPower: 1
-    }
-    
-    let swordsman = {
-      name: 'swordsman',
-      type: 'Infantry',
-      defAgainstCalvary: 1,
-      defAgainstInfantry: 7,
-      defAgainstSpy: 0,
-      defAgainstMage: 1,
-      defAgainstSiegeWeapons: 3,
-      attackPower: 2
-    }
-    
-    let spy = {
-      name: 'spy',
-      type: 'Spy',
-      defAgainstCalvary: 0,
-      defAgainstInfantry: 1,
-      defAgainstSpy: 2,
-      defAgainstMage: 0,
-      defAgainstSiegeWeapons: 2,
-      attackPower: 0
-    }
-    
-    let calvary = {
-      name: 'calvary',
-      type: 'Calvary',
-      defAgainstCalvary: 3,
-      defAgainstInfantry: 1,
-      defAgainstSpy: 0,
-      defAgainstMage: 1,
-      defAgainstSiegeWeapons: 1,
-      attackPower: 3
-    }
-    
-    let ram = {
-      name: 'ram',
-      type: 'SiegeWeapon',
-      defAgainstCalvary: 1,
-      defAgainstInfantry: 0,
-      defAgainstSpy: 0,
-      defAgainstMage: 0,
-      defAgainstSiegeWeapons: 0,
-      attackPower: 2
-    }
-    
-    let knight = {
-      name: 'knight',
-      type: 'Calvary',
-      defAgainstCalvary: 3,
-      defAgainstInfantry: 4,
-      defAgainstSpy: 0,
-      defAgainstMage: 4,
-      defAgainstSiegeWeapons: 4,
-      attackPower: 3
-    }
-    
-    let mercenary = {
-      name: 'mercenary',
-      type: 'Infantry',
-      defAgainstCalvary: 2,
-      defAgainstInfantry: 2,
-      defAgainstSpy: 1,
-      defAgainstMage: 2,
-      defAgainstSiegeWeapons: 2,
-      attackPower: 2
-    }
-    
-    let mage = {
-      name: 'mage',
-      type: 'Mage',
-      defAgainstCalvary: 3,
-      defAgainstInfantry: 3,
-      defAgainstSpy: 0,
-      defAgainstMage: 1,
-      defAgainstSiegeWeapons: 4,
-      attackPower: 3
-    }
-    
-    let catapult = {
-      name: 'catapult',
-      type: 'SiegeWeapon',
-      defAgainstCalvary: 4,
-      defAgainstInfantry: 4,
-      defAgainstSpy: 0,
-      defAgainstMage: 2,
-      defAgainstSiegeWeapons: 5,
-      attackPower: 4
-    }
-    
+
     let allTroops = [archer, lancer, swordsman, spy, calvary, ram, knight, mercenary, mage, catapult]
     let fullDef = {
       defAgainstCalvary: 0,
+      defAgainstDistance: 0,
       defAgainstInfantry: 0,
       defAgainstSpy: 0,
       defAgainstMage: 0,
@@ -152,27 +165,73 @@ class Troops {
     };
     return fullDef
   };
-  fullPower() {
-  }
-}
+
+
+  fullAttackPower() {
+    let fullPower = {
+      calvaryAtk: 0,
+      distanceAtk: 0,
+      infantryAtk: 0,
+      spyAtk: 0,
+      mageAtk: 0,
+      siegeWeaponAtk: 0
+    }
+    let allTroops = [archer, lancer, swordsman, spy, calvary, ram, knight, mercenary, mage, catapult]
+    for (let j = 0; j < allTroops.length; j++) {
+    
+      let typeOfSoldier = allTroops[j][Object.keys(allTroops[j])[1]];
+      let attackValueOfSoldier = allTroops[j][Object.keys(allTroops[j])[8]];
+
+      if (typeOfSoldier == 'Calvary') {
+        fullPower.calvaryAtk += attackValueOfSoldier * this[Object.keys(this)[j]]
+      } else if (typeOfSoldier == 'distanceType') {
+        fullPower.distanceAtk += attackValueOfSoldier * this[Object.keys(this)[j]]
+      } else if (typeOfSoldier == 'Infantry') {
+        fullPower.infantryAtk += attackValueOfSoldier * this[Object.keys(this)[j]]
+      } else if (typeOfSoldier == 'Spy') {
+        fullPower.spyAtk += attackValueOfSoldier * this[Object.keys(this)[j]]
+      } else if (typeOfSoldier == 'SiegeWeapon') {
+        fullPower.siegeWeaponAtk += attackValueOfSoldier * this[Object.keys(this)[j]]
+      } else if (typeOfSoldier == 'Mage') {
+        fullPower.mageAtk += attackValueOfSoldier * this[Object.keys(this)[j]]
+      };
+    };
+    return fullPower;
+  };
+};
+
+
 
 class Village {
-  constructor(name, pos, points, troops, def, atk) {
+  constructor(name, pos, points, troops, bonuses = 0) {
     this.name = name;
     this.defense = pos;
     this.points = points;
-    this.defense = def;
-    this.power = atk;
     this.troops = troops;
+    this.bonuses = bonuses;
   }
   defend(power) {
-    this.defense -= power / 100 * 50
+
   }
   attack(target) {
     target.defend(this.power)
   }
+  stats() {
+    return {
+      name: this.name,
+      poinst: this.points,
+      position: this.position,
+      bonuses: this.bonuses,
+      attack_power: this.troops.fullPower,
+      defense: this.troops.fullDefense,
+    }
+  }
 }
 
-let someTroops = new Troops(1)
+let someTroops = new Troops(1, 7, 7, 4, 4, 6, 5, 2, 3, 1)
+let newVillage = new Village('Budapest', [303, 320], 2156, someTroops)
 
-console.log(someTroops.fullDefense())
+//console.log(newVillage.stats)
+console.log(someTroops.fullAttackPower(),' vs ',someTroops.fullDefense())
+
+
