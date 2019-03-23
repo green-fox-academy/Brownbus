@@ -226,6 +226,7 @@ class Village {
       defense: this.troops.fullDefense(),
     }
   };
+  
   train( villageArmyName, troop, quantity) {
     for (let i = 0; i < quantity; i++) {
       setTimeout(() => {
@@ -238,8 +239,5 @@ class Village {
 let budapestArmy = new Troops(1, 7, 7, 4, 4, 6, 5, 2, 3, 1)
 let budapest = new Village('Budapest', [303, 320], 2156, budapestArmy)
 
-console.log(budapestArmy.lancerNum)
-budapest.train(budapestArmy, "lancerNum", 3)
-console.log(budapestArmy.lancerNum)
 
 
