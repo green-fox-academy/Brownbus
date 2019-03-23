@@ -10,7 +10,9 @@ let archer = {
   defAgainstSpy: 0,
   defAgainstMage: 2,
   defAgainstSiegeWeapons: 1,
-  attackPower: 2
+  attackPower: 2,
+  level: 1,
+  trainingTime: 4
 }
 
 let lancer = {
@@ -22,7 +24,9 @@ let lancer = {
   defAgainstSpy: 0,
   defAgainstMage: 1,
   defAgainstSiegeWeapons: 3,
-  attackPower: 1
+  attackPower: 1,
+  level: 1,
+  trainingTime: 3
 }
 
 let swordsman = {
@@ -34,7 +38,9 @@ let swordsman = {
   defAgainstSpy: 0,
   defAgainstMage: 1,
   defAgainstSiegeWeapons: 3,
-  attackPower: 2
+  attackPower: 2,
+  level: 1,
+  trainingTime: 2
 }
 
 let spy = {
@@ -46,7 +52,9 @@ let spy = {
   defAgainstSpy: 2,
   defAgainstMage: 0,
   defAgainstSiegeWeapons: 2,
-  attackPower: 0
+  attackPower: 0,
+  level: 1,
+  trainingTime: 6
 }
 
 let calvary = {
@@ -58,7 +66,9 @@ let calvary = {
   defAgainstSpy: 0,
   defAgainstMage: 1,
   defAgainstSiegeWeapons: 1,
-  attackPower: 3
+  attackPower: 3,
+  level: 1,
+  trainingTime: 8
 }
 
 let ram = {
@@ -70,7 +80,9 @@ let ram = {
   defAgainstSpy: 0,
   defAgainstMage: 0,
   defAgainstSiegeWeapons: 0,
-  attackPower: 2
+  attackPower: 2,
+  level: 1,
+  trainingTime: 22
 }
 
 let knight = {
@@ -82,7 +94,9 @@ let knight = {
   defAgainstSpy: 0,
   defAgainstMage: 4,
   defAgainstSiegeWeapons: 4,
-  attackPower: 3
+  attackPower: 3,
+  level: 1,
+  trainingTime: 11
 }
 
 let mercenary = {
@@ -94,7 +108,9 @@ let mercenary = {
   defAgainstSpy: 1,
   defAgainstMage: 2,
   defAgainstSiegeWeapons: 2,
-  attackPower: 2
+  attackPower: 2,
+  level: 1,
+  trainingTime: 2
 }
 
 let mage = {
@@ -106,7 +122,9 @@ let mage = {
   defAgainstSpy: 0,
   defAgainstMage: 1,
   defAgainstSiegeWeapons: 4,
-  attackPower: 3
+  attackPower: 3,
+  level: 1,
+  trainingTime: 7
 }
 
 let catapult = {
@@ -118,7 +136,9 @@ let catapult = {
   defAgainstSpy: 0,
   defAgainstMage: 2,
   defAgainstSiegeWeapons: 5,
-  attackPower: 4
+  attackPower: 4,
+  level: 1,
+  trainingTime: 30
 }
 
 
@@ -210,12 +230,30 @@ class Village {
     this.troops = troops;
     this.bonuses = bonuses;
   }
-  defend(power) {
-
-  }
+  defend(enemyTroops) {
+    let allTroops = [archer, lancer, swordsman, spy, calvary, ram, knight, mercenary, mage, catapult]
+    let types = [['Calvary',  [calvaryNum, knightNum]], 
+    ['distanceType', [archerNum]], 
+    ['Infantry', [swordsmanNum, lancerNum]], 
+    ['Spy', [spyNum]], 
+    ['Mage', [mageNum]], 
+    ['siegeWeapon', [catapultNum, ramNum]]]
+    
+    let myForce = this.troops.fullDefense()
+     for(let i = 0; i < Object.keys(myForce).length; i++){
+      //let typeOfSoldier = allTroops[i][Object.keys(allTroops[i])[1]]
+      if(this.troops.fullDefense()[Object.keys(this.troops.fullDefense())[i]] - enemyTroops.fullAttackPower()[Object.keys(enemyTroops.fullAttackPower())[i]] > 0){
+        for(let j = 0; j < types[i][1].length; j++){
+          enemyTroops[types[i][1][j]] == 0;
+        };
+      };
+    };
+  };
+  
   attack(target) {
-    target.defend(this.power)
+    target.defend(this.troops)
   }
+  
   stats() {
     return {
       name: this.name,
@@ -228,10 +266,11 @@ class Village {
   };
   
   train( villageArmyName, troop, quantity) {
+    let trainingInterval = Math.floor(troop[trainingTime] - (troop[level] * 0.13)) * 60
     for (let i = 0; i < quantity; i++) {
       setTimeout(() => {
         villageArmyName[troop] += 1
-      }, 5000*i);
+      }, trainingInterval*i);
     }
   }
 }
@@ -240,4 +279,10 @@ let budapestArmy = new Troops(1, 7, 7, 4, 4, 6, 5, 2, 3, 1)
 let budapest = new Village('Budapest', [303, 320], 2156, budapestArmy)
 
 
+let otherArmy = new Troops(1, 7, 7, 4, 4, 6, 5, 2, 3, 1)
+let other = new Village('Budapest', [303, 320], 2156, budapestArmy)
+
+
+console.log(budapestArmy)
+other.attack(budapest)
 
