@@ -1,24 +1,91 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Wanderer Game</title>
+    <title>Tribal Wars</title>
     <style>
-      .main-canvas {
-        margin: 20px;
-        border: 1px solid black;
+      .topBar{
+        display: flex;
+        height: 50px;
+        width: 100%;
+        background-color: grey;
+      }
+      .gameBar{
+        display: flex;
+        flex-direction: row-reverse;
+        height: 30px;
+        width: 100%;
+        background-color: burlywood;
       }
 
-      .preload-images {
-        overflow: hidden;
-        height: 0;
+      .gameBody{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
       }
+    .gameScreen{
+      margin-top: 70px;
+      width: 600px;
+      height: 600px;
+      background-image: url(./game_screen_drawer/img/background.png);
+      background-size: cover;
+    }
+    .buildings{
+      position: relative;
+      width: 200px;
+      height: auto;
+      border: solid 3px white;
+      border-radius: 100%;  
+    }
+
+    .hq{
+      top: 150px;
+      left: 34%;
+    }
+
+    .farm{
+      top: 40px;
+      left: 66%;
+    }
+    .gold{
+      top: 10px;
+      left: 150px;
+    }
+
+    .lumber{
+      top: 120px;
+      left: 66%;
+    }
+    .iron{
+      top: -150px;
+      left: -180px;
+    }
+    .stone{
+      bottom: 30px;
+    }
+    
     </style>
   </head>
   <body>
-  <div class="preload-images">
-      <img id="village" src="game_screen_drawer/img/village.png">
+  <div class="topBar"></div>
+  <div class="gameBar"></div>
+  <div class="gameBody">
+    <div class="gameScreen">
+      <div class="buildingsCont">
+        <img src="./game_screen_drawer/img/castle.jpg" alt="HQ" class="buildings hq">
+        <img src="./game_screen_drawer/img/gold_mine.jpg" alt="GoldMine" class="buildings gold">
+        <img src="./game_screen_drawer/img/farm.gif" alt="" class="buildings farm">
+        <img src="./game_screen_drawer/img/iron_mine.jpg" alt="" class="buildings iron">
+        <img src="./game_screen_drawer/img/lumber_mill.jpg" alt="" class="buildings lumber">
+        <img src="./game_screen_drawer/img/training.jpg" alt="" class="buildings training">
+        <img src="./game_screen_drawer/img/stone_quarry.jpg" alt="" class="buildings stone">
+      </div>
+    </div>
   </div>
-    <canvas width="800" height="800" class="main-canvas"></canvas>
+    
+
+
    <script src="./game_screen_drawer/main.js"></script>
   </body>
 </html>
+
