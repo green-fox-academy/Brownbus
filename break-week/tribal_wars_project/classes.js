@@ -1,7 +1,7 @@
 'use strict';
 
-function random(min, max){
-return Math.floor((Math.random() * (max-min)) + min)
+function random(min, max) {
+  return Math.floor((Math.random() * (max - min)) + min)
 }
 
 let archer = {
@@ -237,28 +237,42 @@ class Village {
     let allTroops = [archer, lancer, swordsman, spy, calvary, ram, knight, mercenary, mage, catapult]
     let types = [['Calvary', ['calvaryNum', 'knightNum']],
     ['distanceType', ['archerNum']],
-    ['Infantry', ['swordsmanNum', 'lancerNum']],
+    ['Infantry', ['swordsmanNum', 'lancerNum', 'mercenaryNum']],
     ['Spy', ['spyNum']],
     ['Mage', ['mageNum']],
     ['siegeWeapon', ['catapultNum', 'ramNum']]]
 
     let myForce = this.troops.fullDefense()
     for (let i = 0; i < Object.keys(myForce).length; i++) {
-      if (this.troops.fullDefense()[Object.keys(this.troops.fullDefense())[i]] - enemyTroops.fullAttackPower()[Object.keys(enemyTroops.fullAttackPower())[i]] > 0) {
-        let initialDefPower = this.troops.fullDefense()[Object.keys(this.troops.fullDefense())[i]];
-        let powerDiff = this.troops.fullDefense()[Object.keys(this.troops.fullDefense())[i]] - enemyTroops.fullAttackPower()[Object.keys(enemyTroops.fullAttackPower())[i]];
-        let defDeathRatio = (initialDefPower-powerDiff)/initialDefPower;
-        
+      let initialDefPower = this.troops.fullDefense()[Object.keys(this.troops.fullDefense())[i]];
+      let initialEnemyPower = enemyTroops.fullAttackPower()[Object.keys(enemyTroops.fullAttackPower())[i]]
+      let powerDiff = initialDefPower - initialEnemyPower;
+      let defDeathRatio = (initialDefPower - powerDiff) / initialDefPower;
+      let atkDeathRatio = (initialEnemyPower - (powerDiff * -1))/initialEnemyPower
+      if (powerDiff >= 0) {
         for (let troop = 0; troop < types[i][1].length; troop++) {
-          let survivalChance = random(1,100)
+          let myTroop = this.troops[types[i][1][troop]];
+          let survivalChance = random(1, 100);
           enemyTroops[types[i][1][troop]] = 0;
-          if(survivalChance >= 50){
-            this.troops[types[i][1][troop]] -= Math.ceil(this.troops[types[i][1][troop]] * defDeathRatio)
-          }else{
-            this.troops[types[i][1][troop]] -= Math.floor(this.troops[types[i][1][troop]] * defDeathRatio)
+          if (survivalChance >= 50) {
+            this.troops[types[i][1][troop]] -= Math.ceil(myTroop * defDeathRatio)
+          } else {
+            this.troops[types[i][1][troop]] -= Math.floor(myTroop * defDeathRatio)
           }
         }
-      };
+      } else {
+        for (let troop = 0; troop < types[i][1].length; troop++) {
+          let enemySoldier = enemyTroops[types[i][1][troop]];
+          let survivalChance = random(1, 100);
+          this.troops[types[i][1][troop]] = 0;
+          if (survivalChance >= 50) {
+            enemyTroops[types[i][1][troop]] -= Math.ceil(enemySoldier * atkDeathRatio)
+          } else {
+            enemyTroops[types[i][1][troop]] -= Math.floor(enemySoldier * atkDeathRatio)
+          }
+        }
+        console.log('else')
+      }
     };
   };
 
@@ -291,10 +305,11 @@ let budapestArmy = new Troops(1, 7, 7, 4, 4, 6, 5, 2, 3, 1)
 let budapest = new Village('Budapest', [303, 320], 2156, budapestArmy)
 
 
-let otherArmy = new Troops(1, 7, 7, 4, 4, 6, 5, 2, 3, 1)
+let otherArmy = new Troops(15, 71, 72, 43, 45, 6, 5, 12, 43, 7)
 let other = new Village('Other', [303, 320], 2156, otherArmy)
 
 
 other.attack(budapest)
-
+console.log('bp: ',budapestArmy)
+console.log('other: ',otherArmy)
 
