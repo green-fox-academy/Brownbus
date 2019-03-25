@@ -1,5 +1,8 @@
 'use strict';
 
+function random(min, max){
+return Math.floor((Math.random() * (max-min)) + min)
+}
 
 let archer = {
   name: 'archer',
@@ -232,28 +235,37 @@ class Village {
   }
   defend(enemyTroops) {
     let allTroops = [archer, lancer, swordsman, spy, calvary, ram, knight, mercenary, mage, catapult]
-    let types = [['Calvary',  [calvaryNum, knightNum]], 
-    ['distanceType', [archerNum]], 
-    ['Infantry', [swordsmanNum, lancerNum]], 
-    ['Spy', [spyNum]], 
-    ['Mage', [mageNum]], 
-    ['siegeWeapon', [catapultNum, ramNum]]]
-    
+    let types = [['Calvary', ['calvaryNum', 'knightNum']],
+    ['distanceType', ['archerNum']],
+    ['Infantry', ['swordsmanNum', 'lancerNum']],
+    ['Spy', ['spyNum']],
+    ['Mage', ['mageNum']],
+    ['siegeWeapon', ['catapultNum', 'ramNum']]]
+
     let myForce = this.troops.fullDefense()
-     for(let i = 0; i < Object.keys(myForce).length; i++){
-      //let typeOfSoldier = allTroops[i][Object.keys(allTroops[i])[1]]
-      if(this.troops.fullDefense()[Object.keys(this.troops.fullDefense())[i]] - enemyTroops.fullAttackPower()[Object.keys(enemyTroops.fullAttackPower())[i]] > 0){
-        for(let j = 0; j < types[i][1].length; j++){
-          enemyTroops[types[i][1][j]] == 0;
-        };
+    for (let i = 0; i < Object.keys(myForce).length; i++) {
+      if (this.troops.fullDefense()[Object.keys(this.troops.fullDefense())[i]] - enemyTroops.fullAttackPower()[Object.keys(enemyTroops.fullAttackPower())[i]] > 0) {
+        let initialDefPower = this.troops.fullDefense()[Object.keys(this.troops.fullDefense())[i]];
+        let powerDiff = this.troops.fullDefense()[Object.keys(this.troops.fullDefense())[i]] - enemyTroops.fullAttackPower()[Object.keys(enemyTroops.fullAttackPower())[i]];
+        let defDeathRatio = (initialDefPower-powerDiff)/initialDefPower;
+        
+        for (let troop = 0; troop < types[i][1].length; troop++) {
+          let survivalChance = random(1,100)
+          enemyTroops[types[i][1][troop]] = 0;
+          if(survivalChance >= 50){
+            this.troops[types[i][1][troop]] -= Math.ceil(this.troops[types[i][1][troop]] * defDeathRatio)
+          }else{
+            this.troops[types[i][1][troop]] -= Math.floor(this.troops[types[i][1][troop]] * defDeathRatio)
+          }
+        }
       };
     };
   };
-  
+
   attack(target) {
     target.defend(this.troops)
   }
-  
+
   stats() {
     return {
       name: this.name,
@@ -264,13 +276,13 @@ class Village {
       defense: this.troops.fullDefense(),
     }
   };
-  
-  train( villageArmyName, troop, quantity) {
+
+  train(villageArmyName, troop, quantity) {
     let trainingInterval = Math.floor(troop[trainingTime] - (troop[level] * 0.13)) * 60
     for (let i = 0; i < quantity; i++) {
       setTimeout(() => {
         villageArmyName[troop] += 1
-      }, trainingInterval*i);
+      }, trainingInterval * i);
     }
   }
 }
@@ -280,9 +292,9 @@ let budapest = new Village('Budapest', [303, 320], 2156, budapestArmy)
 
 
 let otherArmy = new Troops(1, 7, 7, 4, 4, 6, 5, 2, 3, 1)
-let other = new Village('Budapest', [303, 320], 2156, budapestArmy)
+let other = new Village('Other', [303, 320], 2156, otherArmy)
 
 
-console.log(budapestArmy)
 other.attack(budapest)
+
 
