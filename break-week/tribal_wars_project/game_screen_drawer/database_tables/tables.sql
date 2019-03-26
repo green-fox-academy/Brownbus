@@ -9,8 +9,9 @@ CREATE TABLE `village` (
 	`village_wood` INT NOT NULL DEFAULT '100',
 	`village_iron` INT NOT NULL DEFAULT '100',
 	`village_stone` INT NOT NULL DEFAULT '100',
-	`available_troops` VARCHAR(30) NOT NULL DEFAULT '[0,0,0,0,0,0,0,0,0]',
-	`away_troops` VARCHAR(30) NOT NULL DEFAULT '[0,0,0,0,0,0,0,0,0]',
+	`materials_last_updated` INT NOT NULL DEFAULT '1',
+	`available_troops` VARCHAR(90) NOT NULL DEFAULT '[0,0,0,0,0,0,0,0,0]',
+	`away_troops` VARCHAR(90) NOT NULL DEFAULT '[0,0,0,0,0,0,0,0,0]',
 	PRIMARY KEY (`village_name`)
 );
 
@@ -23,6 +24,7 @@ CREATE TABLE `buildings` (
 	`lumber_mill` INT NOT NULL DEFAULT '1',
 	`iron_mine` INT NOT NULL DEFAULT '1',
 	`farm` INT NOT NULL DEFAULT '1',
+  `storage` INT NOT NULL DEFAULT '5000',
   FOREIGN KEY (village_name) REFERENCES village(village_name)
 );
 
@@ -35,8 +37,19 @@ CREATE TABLE `ongoing_constructions` (
 
 CREATE TABLE `ongoing_attacks` (
 	`village_name` VARCHAR(30) NOT NULL,
+  `attacker_troops` VARCHAR(90) NOT NULL DEFAULT '[0,0,0,0,0,0,0,0,0]',
 	`target_village_name` VARCHAR(30) NOT NULL,
 	`target_village_coords` VARCHAR(30) NOT NULL,
 	`start_date` INT NOT NULL,
 	`arrival_date` INT NOT NULL
+);
+
+CREATE TABLE `ongoing_training` (
+	`village_name` VARCHAR(30) NOT NULL,
+	`troop_type` VARCHAR(30) NOT NULL,
+	`troop_quantity` INT NOT NULL,
+	`start_date` INT NOT NULL,
+	`time_needed_for_one` INT NOT NULL,
+	`time_needed_for_all` INT NOT NULL,
+	`finish_date` INT NOT NULL
 );

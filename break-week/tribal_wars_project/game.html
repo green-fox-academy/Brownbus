@@ -1,72 +1,111 @@
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Tribal Wars</title>
-    <style>
-      .topBar{
-        display: flex;
-        height: 50px;
-        width: 100%;
-        background-color: grey;
-      }
-      .gameBar{
-        display: flex;
-        flex-direction: row-reverse;
-        height: 30px;
-        width: 100%;
-        background-color: burlywood;
-      }
 
-      .gameBody{
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-      }
-    .gameScreen{
+<head>
+  <meta charset="UTF-8">
+  <title>Tribal Wars</title>
+  <style>
+    body {
+      margin: 0px;
+      height: 100vh;
+      background-image: url(./game_screen_drawer/img/siteBg.jpg);
+      background-size: cover;
+    }
+
+    .topBar {
+      display: flex;
+      height: 50px;
+      width: 100%;
+      background-color: grey;
+    }
+
+    .gameBar {
+      display: flex;
+      flex-direction: row-reverse;
+      height: 30px;
+      width: 100%;
+      background-color: burlywood;
+    }
+
+    .gameBody {
+
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .gameScreen {
+      border: solid 2px black;
+      border-radius: 3px;
       margin-top: 70px;
       width: 600px;
       height: 600px;
       background-image: url(./game_screen_drawer/img/background.png);
       background-size: cover;
     }
-    .buildings{
+
+    .buildings {
       position: relative;
       width: 200px;
       height: auto;
       border: solid 3px white;
-      border-radius: 100%;  
+      border-radius: 100%;
     }
 
-    .hq{
+    .buildings:hover {
+      cursor: pointer;
+    }
+
+    .hq {
       top: 150px;
       left: 34%;
     }
 
-    .farm{
+    .farm {
       top: 40px;
       left: 66%;
     }
-    .gold{
+
+    .gold {
       top: 10px;
       left: 150px;
     }
 
-    .lumber{
+    .lumber {
       top: 120px;
       left: 66%;
     }
-    .iron{
+
+    .iron {
       top: -150px;
       left: -180px;
     }
-    .stone{
+
+    .stone {
       bottom: 30px;
     }
-    
-    </style>
-  </head>
-  <body>
+
+    .soldiers {
+      position: relative;
+      top: -65px;
+      text-align: center;
+      margin-top: 0;
+      border: solid grey 1px;
+      border-collapse: collapse;
+      height: 400px;
+      width: 200px;
+      background-color: bisque;
+      border: solid 2px black;
+      border-radius: 3px;
+    }
+
+    td {
+      border: solid grey 1px;
+    }
+  </style>
+</head>
+
+<body>
   <div class="topBar"></div>
   <div class="gameBar"></div>
   <div class="gameBody">
@@ -81,11 +120,57 @@
         <img src="./game_screen_drawer/img/stone_quarry.jpg" alt="" class="buildings stone">
       </div>
     </div>
+
+    <table class="soldiers">
+      <tr>
+        <td>Archers</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>Lancers</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>Swordsmen</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>Mercenary</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>Knights</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>Mages</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>Spies</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>Calvary</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>Rams</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>Catapults</td>
+        <td>0</td>
+      </tr>
+
+    </table>
+
+
   </div>
-    
 
 
-   <script src="./game_screen_drawer/main.js"></script>
-  </body>
+
+  <script src="./game_screen_drawer/main.js"></script>
+</body>
+
 </html>
-
