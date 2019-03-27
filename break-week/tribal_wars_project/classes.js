@@ -144,7 +144,7 @@ let catapult = {
   trainingTime: 30
 }
 
-
+// a,l,sw,sp,c,r,k,me,ma,c
 class Troops {
   constructor(
     archerNum = 0,
@@ -182,7 +182,6 @@ class Troops {
     }
     for (let j = 0; j < Object.keys(fullDef).length; j++) {
       for (let i = 0; i < 10; i++) {
-        //console.log(`${fullDef[Object.keys(fullDef)[j]]} += ${allTroops[i]}[${Object.keys(fullDef)[j]}] * ${this[Object.keys(this)[i]]}`)
         fullDef[Object.keys(fullDef)[j]] += allTroops[i][Object.keys(fullDef)[j]] * this[Object.keys(this)[i]]
       };
     };

@@ -3,17 +3,23 @@ CREATE TABLE `village` (
 	`village_name` VARCHAR(35) NOT NULL,
 	`village_coords` VARCHAR(50) NOT NULL,
 	`village_stat` VARCHAR(50) NOT NULL DEFAULT 'Prosperity',
-	`village_points` INT NOT NULL DEFAULT '100',
-	`village_gold` INT NOT NULL DEFAULT '100',
-	`village_wheat` INT NOT NULL DEFAULT '100',
-	`village_wood` INT NOT NULL DEFAULT '100',
-	`village_iron` INT NOT NULL DEFAULT '100',
-	`village_stone` INT NOT NULL DEFAULT '100',
-	`materials_last_updated` INT NOT NULL DEFAULT '1',
-	`available_troops` VARCHAR(90) NOT NULL DEFAULT '[0,0,0,0,0,0,0,0,0]',
-	`away_troops` VARCHAR(90) NOT NULL DEFAULT '[0,0,0,0,0,0,0,0,0]',
+	`village_points` INT(60) NOT NULL DEFAULT '100',
+	`village_gold` INT(60) NOT NULL DEFAULT '100',
+	`village_wheat` INT(60) NOT NULL DEFAULT '100',
+	`village_wood` INT(60) NOT NULL DEFAULT '100',
+	`village_iron` INT(60) NOT NULL DEFAULT '100',
+	`village_stone` INT(60) NOT NULL DEFAULT '100',
+	`storage_gold` INT(60) NOT NULL DEFAULT '100',
+	`storage_wheat` INT(60) NOT NULL DEFAULT '100',
+	`storage_wood` INT(60) NOT NULL DEFAULT '100',
+	`storage_stone` INT(60) NOT NULL DEFAULT '100',
+	`storage_iron` INT(60) NOT NULL DEFAULT '100',
+	`materials_last_updated` BIGINT NOT NULL DEFAULT '63681614380',
+	`available_troops` VARCHAR(90) NOT NULL DEFAULT '[0,0,0,0,0,0,0,0,0,0]',
+	`away_troops` VARCHAR(90) NOT NULL DEFAULT '[0,0,0,0,0,0,0,0,0,0]',
 	PRIMARY KEY (`village_name`)
 );
+insert into village(village_owner, village_name, village_coords) VALUES("Brownbus", "Fot", "[300,300]");
 
 CREATE TABLE `buildings` (  
 	`village_name` VARCHAR(30) NOT NULL,
@@ -27,6 +33,7 @@ CREATE TABLE `buildings` (
   `storage` INT NOT NULL DEFAULT '5000',
   FOREIGN KEY (village_name) REFERENCES village(village_name)
 );
+insert into buildings(village_name) VALUES("Fot");
 
 CREATE TABLE `ongoing_constructions` (
 	`village_name` VARCHAR(30) NOT NULL,
