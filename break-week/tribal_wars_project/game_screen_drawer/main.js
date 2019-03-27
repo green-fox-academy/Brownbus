@@ -39,4 +39,4 @@ setInterval(() => {
     body: JSON.stringify({village_name:'Fot'})
   }).then(msg => console.log)
 resourceLoader('Fot')
-  }, 10000);
+  }, 60000);
