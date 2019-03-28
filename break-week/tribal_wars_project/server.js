@@ -161,6 +161,82 @@ app.post('/build/:villageName/:building', (req, res) => {
                 conn.query(resUpdateQuery, (err) => {
                   if (err) { console.log(err) } else {
                     setTimeout(() => {
+                      if(myBuilding === 'gold_mine'){
+                        conn.query(`SELECT gold_mine FROM buildings WHERE village_name="${this.village}"`,(err, mineData)=>{
+                          if(err){
+                            console.log(err)
+                            res.sendStatus(500)
+                          }else{
+                            let newRes = mineData[0].gold_mine
+                            let mineUpdateQuerry = `UPDATE village SET village_gold=village_gold +  ${newRes * 50} WHERE village_name="${this.village}"`
+                            conn.query(mineUpdateQuerry, (err)=>{
+                              console.log(err);
+                              res.sendStatus(500)
+                            });
+                          }
+                        });
+                      }else if(myBuilding = 'lumber_mill'){
+                        conn.query(`SELECT lumber_mill FROM buildings WHERE village_name="${this.village}"`,(err, mineData)=>{
+                          if(err){
+                            console.log(err)
+                            res.sendStatus(500)
+                          }else{
+                            let newRes = mineData[0].lumber_mill
+                            let mineUpdateQuerry = `UPDATE village SET village_wood=village_wood +  ${newRes * 50} WHERE village_name="${this.village}"`
+                            conn.query(mineUpdateQuerry, (err)=>{
+                              console.log(err);
+                              res.sendStatus(500)
+                            });
+                          }
+                        });
+                        //update mill
+                      }else if(myBuilding = 'stone_quarry'){
+                        conn.query(`SELECT stone_quarry FROM buildings WHERE village_name="${this.village}"`,(err, mineData)=>{
+                          if(err){
+                            console.log(err)
+                            res.sendStatus(500)
+                          }else{
+                            let newRes = mineData[0].stone_quarry
+                            let mineUpdateQuerry = `UPDATE village SET village_stone=village_stone +  ${newRes * 50} WHERE village_name="${this.village}"`
+                            conn.query(mineUpdateQuerry, (err)=>{
+                              console.log(err);
+                              res.sendStatus(500)
+                            });
+                          }
+                        });
+                        //update mill
+                      }else if(myBuilding = 'iron_mine'){
+                        conn.query(`SELECT iron_mine FROM buildings WHERE village_name="${this.village}"`,(err, mineData)=>{
+                          if(err){
+                            console.log(err)
+                            res.sendStatus(500)
+                          }else{
+                            let newRes = mineData[0].iron_mine
+                            let mineUpdateQuerry = `UPDATE village SET village_iron=village_iron +  ${newRes * 50} WHERE village_name="${this.village}"`
+                            conn.query(mineUpdateQuerry, (err)=>{
+                              console.log(err);
+                              res.sendStatus(500)
+                            });
+                          }
+                        });
+                        //update mill
+                      }else if(myBuilding = 'farm'){
+                        conn.query(`SELECT farm FROM buildings WHERE village_name="${this.village}"`,(err, mineData)=>{
+                          if(err){
+                            console.log(err)
+                            res.sendStatus(500)
+                          }else{
+                            let newRes = mineData[0].farm
+                            let mineUpdateQuerry = `UPDATE village SET village_wheat=village_wheat +  ${newRes * 50} WHERE village_name="${this.village}"`
+                            conn.query(mineUpdateQuerry, (err)=>{
+                              console.log(err);
+                              res.sendStatus(500)
+                            });
+                          }
+                        });
+                        //update mill
+                      }
+
                       conn.query(updateQuery, (err) => {
                         if (err) { console.log(err) }
                       });
