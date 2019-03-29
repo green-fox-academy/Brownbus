@@ -19,7 +19,11 @@ CREATE TABLE `village` (
 	`away_troops` VARCHAR(90) NOT NULL DEFAULT '[0,0,0,0,0,0,0,0,0,0]',
 	PRIMARY KEY (`village_name`)
 );
-insert into village(village_owner, village_name, village_coords) VALUES("Brownbus", "Fot", "[300,300]");
+insert into village(village_owner, village_name, village_coords) VALUES("Brownbus", "Fot", "[30,30]");
+insert into village(village_owner, village_name, village_coords) VALUES("otherone", "Buda", "[10,10]");
+insert into village(village_owner, village_name, village_coords) VALUES("someone", "Budapest", "[26,11]");
+insert into village(village_owner, village_name, village_coords) VALUES("notMe", "Matt", "[49,1]");
+insert into village(village_owner, village_name, village_coords) VALUES("Whothere", "Tet", "[1,49]");
 
 CREATE TABLE `buildings` (  
 	`village_name` VARCHAR(30) NOT NULL,
@@ -34,6 +38,10 @@ CREATE TABLE `buildings` (
   FOREIGN KEY (village_name) REFERENCES village(village_name)
 );
 insert into buildings(village_name) VALUES("Fot");
+insert into buildings(village_name) VALUES("Tet");
+insert into buildings(village_name) VALUES("Buda");
+insert into buildings(village_name) VALUES("Budapest");
+insert into buildings(village_name) VALUES("Matt");
 
 CREATE TABLE `ongoing_constructions` (
 	`village_name` VARCHAR(30) NOT NULL,

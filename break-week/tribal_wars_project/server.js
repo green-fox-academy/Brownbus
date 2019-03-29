@@ -157,7 +157,8 @@ app.post('/build/:villageName/:building', (req, res) => {
                 storage_wheat = storage_wheat - ${decreasal},
                 storage_wood= storage_wood - ${decreasal},
                 storage_stone = storage_stone - ${decreasal},
-                storage_iron = storage_iron - ${decreasal}`
+                storage_iron = storage_iron - ${decreasal}
+                WHERE village_name="${this.village}"`
                 conn.query(resUpdateQuery, (err) => {
                   if (err) { console.log(err) } else {
                     setTimeout(() => {
@@ -267,4 +268,20 @@ app.post('/build/:villageName/:building', (req, res) => {
     );
     thisVillage.build({ name: myBuilding, level: data[0][myBuilding], cost: [100, 100, 100, 100, 100] })
   });
+});
+
+
+app.get('/api/map',(req, res)=>{
+  let mapQuery = `SELECT village_name, village_coords FROM village`
+  conn.query(mapQuery, (err, data)=>{
+    if(err){
+      console.log(err);
+      res.sendStatus(500)
+    }
+    res.send(data)
+  });
+});
+
+app.get('/map', (req, res)=>{
+res.sendFile(__dirname+'/map.html')
 });
