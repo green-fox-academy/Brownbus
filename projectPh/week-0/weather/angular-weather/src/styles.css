@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+/* You can add global styles to this file, and also import other style files */
+
+*{
+  font-family: Lato;
+}
+
+body{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.tiles{
+  display: flex;
+  justify-content: space-around;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 600px;
+  height: 800px;
+  background-color: whitesmoke;
+}
+
+
+.tile{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin:0;
+  width: 500px;
+  height: 140px;
+  margin: 20px;
+  color: rgb(65, 65, 141);
+  background-color: white;
+  box-shadow: 4px 4px rgb(224, 224, 224);
+  border-radius: 7px;
+  font-size: 24px;
+}
+.noname{
+  display: flex;
+  align-items: center;
+}
+
+.temp h1{
+  font-size: 40px;
+}

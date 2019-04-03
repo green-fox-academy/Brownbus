@@ -45,7 +45,8 @@ app.get('/', (req, res) => {
         storage_wood = "${data[0].storage_wood + (Math.floor(spentHours * data[0].village_wood))}",
         storage_stone = "${data[0].storage_stone + (Math.floor(spentHours * data[0].village_stone))}",
         storage_iron = "${data[0].storage_iron + (Math.floor(spentHours * data[0].village_iron))}" ,
-        materials_last_updated = ${currentTime}        `
+        materials_last_updated = ${currentTime} 
+        WHERE village_owner="${userName}"`
         conn.query(matUpdateQuery, (err) => {
           if (err) {
             console.log(err)
@@ -95,7 +96,8 @@ app.post('/updateResources', (req, res) => {
       storage_wood = storage_wood + ${wood},
       storage_stone = storage_stone + ${stone},
       storage_iron = storage_iron + ${iron},
-      materials_last_updated=${dateStamp}
+      materials_last_updated=${dateStamp} 
+      WHERE village_name="${villageName}"
       `
       conn.query(updateQuery, (err) => {
         if (err) {
