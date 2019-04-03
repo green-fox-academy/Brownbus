@@ -36,7 +36,7 @@ body{
   margin: 20px;
   color: rgb(65, 65, 141);
   background-color: white;
-  box-shadow: 4px 4px rgb(224, 224, 224);
+  /* box-shadow: 4px 4px rgb(224, 224, 224); */
   border-radius: 7px;
   font-size: 24px;
 }

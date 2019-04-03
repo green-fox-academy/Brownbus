@@ -14,7 +14,6 @@ export interface SysObj{
 }
 
 export interface Weather{
-
 main: MainObj,
 name: string,
 weather: WeatherSpecs[],

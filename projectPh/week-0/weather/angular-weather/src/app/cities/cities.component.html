@@ -1,0 +1,15 @@
+<div class="tile" *ngFor="let city of cities">
+    <div class="cc">
+      <h3>{{city.name}}</h3> 
+      <p>{{city.country}}</p>
+    </div>
+    <div class="noname">
+      <div class="temp">
+        <h1>{{city.temp}}</h1> 
+      </div>
+      <div class="icon">
+        <img  style="width:90px; height: 90px;" src={{city.weather}} alt="">
+      </div>
+    </div>
+  </div>
+  

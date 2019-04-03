@@ -1,9 +1,11 @@
-
-
+<app-search (keyup.enter)="hide()"></app-search>
+<div class="hideable" *ngIf="show1">
   <div class="tiles">
-    <app-seattle></app-seattle>
+<app-cities></app-cities>
+<!--      <app-seattle></app-seattle>
     <app-miami></app-miami>
     <app-barcelona></app-barcelona>
     <app-london></app-london>
-    <app-budapest></app-budapest>
+    <app-budapest></app-budapest> -->
   </div>
+</div>

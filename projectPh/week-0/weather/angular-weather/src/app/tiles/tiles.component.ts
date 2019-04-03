@@ -6,7 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tiles.component.css']
 })
 export class TilesComponent implements OnInit {
-  constructor() { }
+  show1 = true;
+  constructor(){}
+hide(){
+this.show1 = false
+}
   ngOnInit() {
   }
 

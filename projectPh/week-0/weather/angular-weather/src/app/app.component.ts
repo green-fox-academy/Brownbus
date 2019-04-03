@@ -7,11 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Weather forecast';
-  show1 = true;
-  constructor(){}
-hide(){
-this.show1 = false
-}
 }
 
-  
