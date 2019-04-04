@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { Observable} from 'rxjs';
 import { Weather } from './app/models/CurrentWeather';
-
+import {catchError} from 'rxjs/operators'
 @Injectable({
 providedIn: 'root'
 })
@@ -11,9 +11,9 @@ export class ApiFetcherService {
   constructor(private http: HttpClient) {
 
   };
-  toFetch(url: string): Observable<Weather> {
+  toFetch(url: string): any  {
     this.url = url;
-    let result = this.http.get<Weather>(url);
-    return result;
-  };
-;}
+    let result = this.http.get(url,{observe : 'response'})
+    return result
+  }
+}
