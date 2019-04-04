@@ -2,7 +2,7 @@ import { Weather } from './models/CurrentWeather';
 import { City } from './models/City';
       export function weatherIcon(weatherData):string{
         let myWeather: string;
-        switch(weatherData.body.weather[0].icon){
+        switch(weatherData.icon){
           case '01n':
           myWeather = "../../../assets/ions/sunny.png";
           break;

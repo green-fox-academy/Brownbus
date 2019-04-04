@@ -17,7 +17,7 @@ describe('AppComponent', () => {
   it('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
+    expect(app).toBe(true);
   });
 
   it(`should have as title 'angular-weather'`, () => {

@@ -13,5 +13,4 @@ this.show1 = false
 }
   ngOnInit() {
   }
-
 }

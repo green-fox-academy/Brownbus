@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { SearchComponent } from './search/search.component';
 import { TilesComponent } from './tiles/tiles.component';
 import { CitiesComponent } from './cities/cities.component';
+import { ForecastComponent } from './forecast/forecast.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchComponent,
     TilesComponent,
-    CitiesComponent
+    CitiesComponent,
+    ForecastComponent
   ],
   imports: [
     BrowserModule,

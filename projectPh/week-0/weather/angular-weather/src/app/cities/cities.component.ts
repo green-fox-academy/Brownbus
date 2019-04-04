@@ -28,7 +28,7 @@ export class CitiesComponent implements OnInit {
         resp: data.status,
         name: data.body.name,
         country: data.body.sys.country,
-        weather: weatherIcon(data),
+        weather: weatherIcon(data.body.weather[0]),
         temp: `${Math.round(data.body.main.temp - 273)}℃`  
       })
 

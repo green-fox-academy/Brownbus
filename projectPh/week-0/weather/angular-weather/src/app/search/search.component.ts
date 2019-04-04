@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http'
-import { Weather } from '../models/CurrentWeather';
 import { ApiFetcherService } from 'src/api-fetcher.service';
 import { weatherIcon } from '../weatherIconChooser';
 let apiKey = '67b670f50bba99d9bf79e08cf5962c18';
 
 @Component({
   selector: 'app-search',
-  template: `<input type="text" #box (keyup)="onEnter(box.value)" placeholder="Search">
+  template: `<input type="text" #box (keyup.enter)="onEnter(box.value)" placeholder="Search">
   <button (click) ="onEnter(box.value)">Search</button>
   <h1 style="color:red" *ngIf='resp.length > 1'>{{resp}}</h1>
   <div class="tile">
@@ -47,19 +46,22 @@ export class SearchComponent {
       this.resp = ''
       this.city = data.body.name,
       this.country =  data.body.sys.country,
-      this.weather =  weatherIcon(data),
+      this.weather =  weatherIcon(data.body.weather[0]),
       this.temp = `${Math.round(data.body.main.temp - 273)}℃`  
+      return 'Succesful'
     }, (error: HttpErrorResponse)=>{
       if(error.status === 404){
         let myError = new Error("City is not found")
-        console.log(myError.message)
         this.resp = myError.message
+        return `${error.status} ${error.message}`
       }else{
+        console.log(error.status)
         let myError = new Error('You have used this service a bit too much, leave it be for some time')
         console.log(myError.message)
         this.resp = myError.message
+        return `${error.status} ${error.message}`
       }
     })
-
+    
   }
 }

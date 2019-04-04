@@ -1,6 +1,7 @@
-<app-search (keyup)="hide()"></app-search>
+<app-search (keyup.enter)="hide()"></app-search>
+<app-forecast cityId="5816508"></app-forecast>
 <div class="hideable" *ngIf="show1">
   <div class="tiles">
-<app-cities></app-cities>
+    <app-cities></app-cities>
   </div>
 </div>
