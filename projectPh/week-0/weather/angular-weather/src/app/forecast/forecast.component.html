@@ -1,4 +1,9 @@
-<div class="cont">
+
+<input  (keyup.enter)="setValue(searchBar.value)"  #searchBar type="text" [(ngModel)]="value">
+<div *ngIf="resp.length > 1" class="errorMsg">
+  <h1 style = 'color:red'>{{resp}}</h1>
+</div>
+<div class="cont" *ngIf="name.length > 0 && resp.length < 1" >
   <div class="cityName">
     <h1>{{name}}</h1>
   </div>

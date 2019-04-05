@@ -4,4 +4,5 @@ export interface City{
   temp: string;
   name: string;
   country: string;
+  id: string;
 }

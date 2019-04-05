@@ -18,6 +18,7 @@ export class CitiesComponent implements OnInit {
   temp: string;
   name: string;
   country: string;
+  id: string
   constructor(private svc: ApiFetcherService) {
   }
 
@@ -29,7 +30,8 @@ export class CitiesComponent implements OnInit {
         name: data.body.name,
         country: data.body.sys.country,
         weather: weatherIcon(data.body.weather[0]),
-        temp: `${Math.round(data.body.main.temp - 273)}℃`  
+        temp: `${Math.round(data.body.main.temp - 273)}℃`,
+        id: data.body.id
       })
 
     },(error: HttpErrorResponse) => {

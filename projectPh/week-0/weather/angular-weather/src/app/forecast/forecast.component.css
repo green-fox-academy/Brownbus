@@ -28,3 +28,7 @@ h1{
   flex-direction: column;
   border-radius: 10px;
 }
+
+input{
+  margin: 50px;
+}

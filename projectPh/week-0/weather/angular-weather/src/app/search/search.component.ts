@@ -49,6 +49,7 @@ export class SearchComponent {
       this.weather =  weatherIcon(data.body.weather[0]),
       this.temp = `${Math.round(data.body.main.temp - 273)}℃`  
       return 'Succesful'
+      
     }, (error: HttpErrorResponse)=>{
       if(error.status === 404){
         let myError = new Error("City is not found")
