@@ -14,7 +14,7 @@ export class DashoboardComponent implements OnInit {
     private svc:ApiFetcherService
     ){}
   url: string = '';
-  something: string = ''
+  cityIdentifier: string = ''
   resp: string = ''
   value: string = '';
   temperature: string[] = [];
@@ -23,13 +23,13 @@ export class DashoboardComponent implements OnInit {
   desc: string[] = [];
   appId = 'fef19bc203ee937d5506cce5cf6ba656';
 
-getData(cityId){
+getWeatherForecastData(cityId){
   this.url = `http://api.openweathermap.org/data/2.5/forecast?id=${
     cityId
     
   }&appid=${this.appId}`
   let myWeather = this.svc.toFetch(this.url);
-  myWeather.subscribe((weatherData: any) => {
+   myWeather.subscribe((weatherData: any) => {
     console.log(weatherData);
     for (let i = 0; i < 5; i -= -1) {
       this.name = weatherData.body.city.name;
@@ -54,12 +54,11 @@ getData(cityId){
       this.resp = myError.message
       return `${error.status} ${error.message}`
     }
-  })
+  }) 
 }
 
 ngOnInit() {
-    this.something = this.route.snapshot.params['id']
-    this.getData(this.something)
+    this.cityIdentifier = this.route.snapshot.paramMap.get('id')
+    this.getWeatherForecastData(this.cityIdentifier)
   }
-
 }
